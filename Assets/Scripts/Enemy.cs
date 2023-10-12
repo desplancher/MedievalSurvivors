@@ -4,16 +4,20 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public float enemyMoveSpeed = 3.0f;
+    public float enemyMoveSpeed = 3.0f;     // Velocidade do inimigo
+    
+    public int maxHealth = 20;              // Vida máxima do inimigo
+    private int currentHealth;              // Vida atual do inimigo
+
     private Transform playerTransform;
-    // Start is called before the first frame update
+   
+
     void Start()
     {
-        // Encontre o GameObject do jogador usando a tag "Player"
-        playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
+        currentHealth = maxHealth;                                                  // Inicializa a vida atual com a vida máxima
+        playerTransform = GameObject.FindGameObjectWithTag("Player").transform;     // Encontre o GameObject do jogador usando a tag "Player"
     }
 
-    // Update is called once per frame
     void Update()
     {
         EnemyMovement();
@@ -21,15 +25,32 @@ public class Enemy : MonoBehaviour
 
     void EnemyMovement()
     {
-        // Verifique se o jogador foi encontrado
+        // Verifica se o jogador foi encontrado
         if (playerTransform != null)
         {
-            // Calcule a direção do jogador em relação ao inimigo
-            Vector3 direction = playerTransform.position - transform.position;
-            direction.Normalize(); // Normaliza o vetor para ter comprimento 1
+            Vector3 direction = playerTransform.position - transform.position;      // Calcula a direção do jogador em relação ao inimigo
+            direction.Normalize();                                                  // Normaliza o vetor para ter comprimento 1
 
-            // Mova o inimigo na direção do jogador
-            transform.Translate(direction * enemyMoveSpeed * Time.deltaTime);
+            transform.Translate(direction * enemyMoveSpeed * Time.deltaTime);       // Move o inimigo na direção do jogador
         }
+    }
+
+    public void TakeDamage(int damage)
+    {
+        currentHealth -= damage;                                                    // Reduz a vida atual pelo valor de dano recebido
+
+        // Verifica se o inimigo ficou sem vida
+        if (currentHealth <= 0)
+        {
+            EnemyDie();                                                                  // Chama a função para lidar com a morte do inimigo
+        }
+    }
+
+    void EnemyDie()
+    {
+        // Implemente o código para lidar com a morte do inimigo aqui
+        // Por exemplo, pode ser a reprodução de uma animação de morte, remover o inimigo do jogo, adicionar pontos ao jogador, etc.
+
+        Destroy(gameObject);                                                        // Remove o GameObject do inimigo do cenário
     }
 }
