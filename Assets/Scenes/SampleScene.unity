@@ -690,6 +690,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
+  maxHealth: 100
+  currentHealth: 0
 --- !u!1 &923775103
 GameObject:
   m_ObjectHideFlags: 0
@@ -1191,7 +1193,7 @@ MonoBehaviour:
   - {fileID: 1145787961474556297, guid: a0b5244744bfccd4d8ccc3a6bcb4115b, type: 3}
   - {fileID: 5072234029389208295, guid: 68c9b165eeaa4ee498f1e1a419995aed, type: 3}
   gameCamera: {fileID: 519420031}
-  spawnInterval: 3
+  spawnInterval: 1
   distanceSpawn: 4
 --- !u!1 &1765116514
 GameObject:
@@ -1240,7 +1242,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 100
-  rotationSpeed: 2000
+  rotationSpeed: 500
   player: {fileID: 810957465}
 --- !u!58 &1765116518
 CircleCollider2D:

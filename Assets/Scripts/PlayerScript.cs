@@ -2,12 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerScript : MonoBehaviour
+public class PlayerScript : MasterClass
 {
-    
-    public float speed = 5.0f; // Velocidade do jogador
     public int maxHealth = 100;
     public int currentHealth;
+    public float healthRegenration;
+
+    public int defense;
+
+    public float speed = 5.0f; // Velocidade do jogador
+
+    public int numberProjects;
+    public float sizeProjects;
+
+    public int numberConjurations;
+    public float areaConjurationsMultiplier;
+
+
 
     void Start()
     {
