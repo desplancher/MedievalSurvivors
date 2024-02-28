@@ -4,12 +4,23 @@ using UnityEngine;
 
 public class MasterClass : MonoBehaviour
 {
-    public int level = 1;
+    public float additionalHealthRegenration;
+    public float additionalHealth;
+
+    public int damage;
+    public int defense;
+    public int speed;
+
+    public int level;
     public float actualExperience;
     public float maxExperience;
     public float experienceMultiplier;
 
-    public int damage;
+    public int numberProjects;
+    public float sizeProjects;
+
+    public int numberConjurations;
+    public float areaConjurationsMultiplier;
 
     public bool isEnemy;
     // Start is called before the first frame update

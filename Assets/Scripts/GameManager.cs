@@ -51,9 +51,9 @@ public class GameManager : MonoBehaviour
             if (((randomX <= (cameraX - distanceSpawn) || randomX >= (cameraX + distanceSpawn)) && 
                  (randomY <= (cameraY - distanceSpawn) || randomY >= (cameraY + distanceSpawn))))
             {
-                Debug.Log("Camera W: " + cameraWidth / 2f + ", Camera H: " + cameraHeight / 2f);
-                Debug.Log("Camera X: " + cameraX + ", Camera Y: " + cameraY);
-                Debug.Log("Random X: " + randomX + ", Random Y: " + randomY);
+                //Debug.Log("Camera W: " + cameraWidth / 2f + ", Camera H: " + cameraHeight / 2f);
+                //Debug.Log("Camera X: " + cameraX + ", Camera Y: " + cameraY);
+               // Debug.Log("Random X: " + randomX + ", Random Y: " + randomY);
 
 
                 Vector3 spawnPosition = new Vector3(randomX, randomY, 0);

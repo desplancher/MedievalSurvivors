@@ -207,73 +207,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &45247310
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 45247311}
-  - component: {fileID: 45247312}
-  m_Layer: 0
-  m_Name: Collider
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &45247311
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 45247310}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.49, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1530125955}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!60 &45247312
-PolygonCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 45247310}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 1.142468, y: 1.0501097}
-      - {x: 0.67551017, y: 1.5005982}
-      - {x: 0.17454922, y: 1.5361158}
-      - {x: -0.35082126, y: 1.0369551}
-      - {x: -0.3775375, y: 0.022257507}
-      - {x: -0.026734114, y: -0.6968068}
-      - {x: -0.0027802587, y: -1.9677368}
-      - {x: 0.96699417, y: -1.9659125}
-      - {x: 0.9493516, y: -0.7466779}
-      - {x: 1.3624941, y: 0.07212888}
 --- !u!1 &53439922
 GameObject:
   m_ObjectHideFlags: 0
@@ -743,52 +676,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &761568434
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 761568436}
-  - component: {fileID: 761568435}
-  m_Layer: 0
-  m_Name: HealthManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &761568435
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 761568434}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e306163829c8da24ea152dc4cfd293fa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  healthBar: {fileID: 1508407874}
-  healthAmount: 100
---- !u!4 &761568436
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 761568434}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.25980803, y: -0.1296543, z: -0.009487235}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &810957464
 GameObject:
   m_ObjectHideFlags: 0
@@ -798,7 +685,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 810957465}
-  - component: {fileID: 810957466}
+  - component: {fileID: 810957467}
+  - component: {fileID: 810957468}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -825,7 +713,42 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &810957466
+--- !u!60 &810957467
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 810957464}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.45, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 1.142468, y: 1.0501097}
+      - {x: 0.67551017, y: 1.5005982}
+      - {x: 0.17454922, y: 1.5361158}
+      - {x: -0.35082126, y: 1.0369551}
+      - {x: -0.3775375, y: 0.022257507}
+      - {x: -0.026734114, y: -0.6968068}
+      - {x: -0.0027802587, y: -1.9677368}
+      - {x: 0.96699417, y: -1.9659125}
+      - {x: 0.9493516, y: -0.7466779}
+      - {x: 1.3624941, y: 0.07212888}
+--- !u!114 &810957468
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -837,21 +760,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 199a2e3bfcebc4e47aef2519d3d37204, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  additionalHealthRegenration: 0
+  additionalHealth: 0
+  damage: 0
+  defense: 0
+  speed: 5
   level: 1
   actualExperience: 0
   maxExperience: 0
   experienceMultiplier: 0
-  damage: 0
-  isEnemy: 0
-  maxHealth: 100
-  currentHealth: 0
-  healthRegenration: 0
-  defense: 0
-  speed: 5
   numberProjects: 0
   sizeProjects: 0
   numberConjurations: 0
   areaConjurationsMultiplier: 0
+  isEnemy: 0
+  maxHealth: 100
+  currentHealth: 0
+  healthRegenration: 0.25
+  healthBar: {fileID: 1508407874}
 --- !u!1 &923775103
 GameObject:
   m_ObjectHideFlags: 0
@@ -1503,7 +1429,7 @@ GameObject:
   - component: {fileID: 1530125955}
   m_Layer: 0
   m_Name: PlayerObject
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1521,7 +1447,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 367655877}
-  - {fileID: 45247311}
   m_Father: {fileID: 810957465}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1571,7 +1496,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyPrefabs:
   - {fileID: 1145787961474556297, guid: a0b5244744bfccd4d8ccc3a6bcb4115b, type: 3}
-  - {fileID: 5072234029389208295, guid: 68c9b165eeaa4ee498f1e1a419995aed, type: 3}
+  - {fileID: 1145787961474556297, guid: b61f071bd060f9f4597db3f38b458846, type: 3}
   gameCamera: {fileID: 519420031}
   spawnInterval: 1
   distanceSpawn: 4
@@ -1584,11 +1509,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1765116515}
-  - component: {fileID: 1765116516}
   - component: {fileID: 1765116518}
+  - component: {fileID: 1765116519}
   m_Layer: 0
   m_Name: RotatingWeapon
-  m_TagString: Untagged
+  m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1609,21 +1534,6 @@ Transform:
   m_Father: {fileID: 810957465}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1765116516
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1765116514}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f35f1ece2315f44a821a8a1e93467ce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 100
-  rotationSpeed: 500
-  player: {fileID: 810957465}
 --- !u!58 &1765116518
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1640,6 +1550,33 @@ CircleCollider2D:
   m_Offset: {x: -0.6144172, y: 0.47788012}
   serializedVersion: 2
   m_Radius: 0.27471364
+--- !u!114 &1765116519
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1765116514}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e3548d4061bb80448456aefdc81b0f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  additionalHealthRegenration: 0
+  additionalHealth: 0
+  damage: 20
+  defense: 0
+  speed: 500
+  level: 1
+  actualExperience: 0
+  maxExperience: 0
+  experienceMultiplier: 0
+  numberProjects: 0
+  sizeProjects: 0
+  numberConjurations: 0
+  areaConjurationsMultiplier: 0
+  isEnemy: 0
+  player: {fileID: 810957465}
 --- !u!1 &1811085440
 GameObject:
   m_ObjectHideFlags: 0

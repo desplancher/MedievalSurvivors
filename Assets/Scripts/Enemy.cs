@@ -1,14 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MasterClass
+public class Enemy : AnimatedObjects
 {
-    public float enemyMoveSpeed = 3.0f;     // Velocidade do inimigo
-    
-    public int maxHealth = 20;              // Vida máxima do inimigo
-    private int currentHealth;              // Vida atual do inimigo
-
     private Transform playerTransform;
    
 
@@ -23,6 +19,12 @@ public class Enemy : MasterClass
         EnemyMovement();
     }
 
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        DamageInPlayer(other);
+        Debug.Log(other.tag);
+    }
+
     void EnemyMovement()
     {
         // Verifica se o jogador foi encontrado
@@ -31,26 +33,17 @@ public class Enemy : MasterClass
             Vector3 direction = playerTransform.position - transform.position;      // Calcula a direção do jogador em relação ao inimigo
             direction.Normalize();                                                  // Normaliza o vetor para ter comprimento 1
 
-            transform.Translate(direction * enemyMoveSpeed * Time.deltaTime);       // Move o inimigo na direção do jogador
+            transform.Translate(direction * speed * Time.deltaTime);       // Move o inimigo na direção do jogador
         }
     }
 
-    public void TakeDamage(int damage)
+    void DamageInPlayer(Collider2D playerCollider)
     {
-        currentHealth -= damage;                                                    // Reduz a vida atual pelo valor de dano recebido
-
-        // Verifica se o inimigo ficou sem vida
-        if (currentHealth <= 0)
+        if (playerCollider.CompareTag("Player"))
         {
-            EnemyDie();                                                                  // Chama a função para lidar com a morte do inimigo
+            Debug.Log("Bateu2");
+            playerCollider.GetComponent<Player>().TakeDamage(damage);
+
         }
-    }
-
-    void EnemyDie()
-    {
-        // Implemente o código para lidar com a morte do inimigo aqui
-        // Por exemplo, pode ser a reprodução de uma animação de morte, remover o inimigo do jogo, adicionar pontos ao jogador, etc.
-
-        Destroy(gameObject);                                                        // Remove o GameObject do inimigo do cenário
     }
 }

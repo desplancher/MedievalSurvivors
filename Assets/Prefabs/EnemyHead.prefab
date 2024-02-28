@@ -47,8 +47,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e60e175400be27a468a12d839b13d9b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyMoveSpeed: 3
-  maxHealth: 20
+  additionalHealthRegenration: 0
+  additionalHealth: 0
+  damage: 10
+  defense: 0
+  speed: 3
+  level: 1
+  actualExperience: 0
+  maxExperience: 0
+  experienceMultiplier: 0
+  numberProjects: 0
+  sizeProjects: 0
+  numberConjurations: 0
+  areaConjurationsMultiplier: 0
+  isEnemy: 1
+  maxHealth: 50
+  currentHealth: 0
+  healthRegenration: 0
 --- !u!60 &1145787961474556301
 PolygonCollider2D:
   m_ObjectHideFlags: 0
