@@ -37,7 +37,7 @@ public class Enemy : AnimatedObjects
         }
     }
 
-    void DamageInPlayer(Collider2D playerCollider)
+    void DamageInPlayer(Collider2D playerCollider) // mudar para masterclass
     {
         if (playerCollider.CompareTag("Player"))
         {

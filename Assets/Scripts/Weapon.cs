@@ -4,28 +4,25 @@ using UnityEngine;
 
 public class Weapon : MasterClass
 {
-    public Transform player;
+    public int levelWeapon;
 
+    public float cooldownLifeTime;
+    public float actualLifeTime;
+
+    public float cooldownUnits;
+
+    public Transform playerTransform;
+    public GameObject weaponObject;
+
+    private void Start()
+    {
+        cooldownLifeTime = 2;
+    }
     void Update()
     {
-        if (player != null)
+        if (actualLifeTime <= 0)
         {
-            transform.RotateAround(player.position, Vector3.forward, speed * Time.deltaTime);
-        }
-    }
-
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        DamageInEnemy(other);
-    }
-
-    void DamageInEnemy(Collider2D enemyCollider)
-    {
-        if (enemyCollider.CompareTag("Enemy"))
-        {
-
-            enemyCollider.GetComponent<Enemy>().TakeDamage(damage);
-
+            Instantiate(weaponObject, playerTransform.position, Quaternion.identity);
         }
     }
 }

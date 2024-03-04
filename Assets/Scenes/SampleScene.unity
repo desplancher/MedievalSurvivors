@@ -710,6 +710,7 @@ Transform:
   - {fileID: 1530125955}
   - {fileID: 1765116515}
   - {fileID: 715137630}
+  - {fileID: 1339245184}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1258,6 +1259,70 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1339245183
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 8991233819728942456, guid: e286578ffd9340e4db7d77490eb36d19, type: 3}
+  m_PrefabInstance: {fileID: 8001440829893477008}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1339245184}
+  - component: {fileID: 1339245185}
+  m_Layer: 0
+  m_Name: WeaponManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1339245184
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 3245135352636579015, guid: e286578ffd9340e4db7d77490eb36d19, type: 3}
+  m_PrefabInstance: {fileID: 8001440829893477008}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1339245183}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 8.728421, y: -2.5071507, z: 1.7864642}
+  m_LocalScale: {x: 4.1720414, y: 4.1720414, z: 4.1720414}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 810957465}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1339245185
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1339245183}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e3548d4061bb80448456aefdc81b0f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  additionalHealthRegenration: 0
+  additionalHealth: 0
+  damage: 0
+  defense: 0
+  speed: 0
+  level: 0
+  actualExperience: 0
+  maxExperience: 0
+  experienceMultiplier: 0
+  numberProjects: 0
+  sizeProjects: 0
+  numberConjurations: 0
+  areaConjurationsMultiplier: 0
+  isEnemy: 0
+  levelWeapon: 0
+  cooldownLifeTime: 0
+  actualLifeTime: 0
+  cooldownUnits: 0
+  playerTransform: {fileID: 810957465}
+  weaponObject: {fileID: 1765116514}
 --- !u!1 &1506950658
 GameObject:
   m_ObjectHideFlags: 0
@@ -1512,7 +1577,7 @@ GameObject:
   - component: {fileID: 1765116518}
   - component: {fileID: 1765116519}
   m_Layer: 0
-  m_Name: RotatingWeapon
+  m_Name: ShurikenWeapon
   m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1559,7 +1624,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1765116514}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5e3548d4061bb80448456aefdc81b0f8, type: 3}
+  m_Script: {fileID: 11500000, guid: 20684dcc1175e9842aa2f97c008787b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   additionalHealthRegenration: 0
@@ -1567,7 +1632,7 @@ MonoBehaviour:
   damage: 20
   defense: 0
   speed: 500
-  level: 1
+  level: 0
   actualExperience: 0
   maxExperience: 0
   experienceMultiplier: 0
@@ -1576,7 +1641,12 @@ MonoBehaviour:
   numberConjurations: 0
   areaConjurationsMultiplier: 0
   isEnemy: 0
-  player: {fileID: 810957465}
+  levelWeapon: 0
+  cooldownLifeTime: 0
+  actualLifeTime: 0
+  cooldownUnits: 0
+  playerTransform: {fileID: 810957465}
+  weaponObject: {fileID: 1765116514}
 --- !u!1 &1811085440
 GameObject:
   m_ObjectHideFlags: 0
@@ -1823,3 +1893,61 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1001 &8001440829893477008
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 810957465}
+    m_Modifications:
+    - target: {fileID: 3245135352636579015, guid: e286578ffd9340e4db7d77490eb36d19, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3245135352636579015, guid: e286578ffd9340e4db7d77490eb36d19, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 8.728421
+      objectReference: {fileID: 0}
+    - target: {fileID: 3245135352636579015, guid: e286578ffd9340e4db7d77490eb36d19, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2.5071507
+      objectReference: {fileID: 0}
+    - target: {fileID: 3245135352636579015, guid: e286578ffd9340e4db7d77490eb36d19, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.7864642
+      objectReference: {fileID: 0}
+    - target: {fileID: 3245135352636579015, guid: e286578ffd9340e4db7d77490eb36d19, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3245135352636579015, guid: e286578ffd9340e4db7d77490eb36d19, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3245135352636579015, guid: e286578ffd9340e4db7d77490eb36d19, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3245135352636579015, guid: e286578ffd9340e4db7d77490eb36d19, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3245135352636579015, guid: e286578ffd9340e4db7d77490eb36d19, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3245135352636579015, guid: e286578ffd9340e4db7d77490eb36d19, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3245135352636579015, guid: e286578ffd9340e4db7d77490eb36d19, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8991233819728942456, guid: e286578ffd9340e4db7d77490eb36d19, type: 3}
+      propertyPath: m_Name
+      value: WeaponManager
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 0}
+  m_SourcePrefab: {fileID: 100100000, guid: e286578ffd9340e4db7d77490eb36d19, type: 3}
