@@ -2,27 +2,58 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Weapon : MasterClass
+public class Weapon : MonoBehaviour
 {
-    public int levelWeapon;
+    public int level;
 
-    public float cooldownLifeTime;
+    public Transform originRef;
+
+    public int damage;
+    public float range;
+    public float scale;
+    public float speed;
+    public Vector3 direction;
     public float actualLifeTime;
+    public bool isPrepared = false;
 
-    public float cooldownUnits;
+    public Transform target;
 
-    public Transform playerTransform;
-    public GameObject weaponObject;
-
-    private void Start()
+    // Start is called before the first frame update
+    void Start()
     {
-        cooldownLifeTime = 2;
+        
     }
+
+    // Update is called once per frame
     void Update()
     {
+        if (isPrepared)
+        {
+            actualLifeTime -= Time.deltaTime;
+        } 
+
         if (actualLifeTime <= 0)
         {
-            Instantiate(weaponObject, playerTransform.position, Quaternion.identity);
+            Destroy(gameObject);
         }
     }
+
+    public void Preapare(Transform objRef, Transform enemyPos, float lifeTimeMax)
+    {
+        target = enemyPos;
+        originRef = objRef;
+        actualLifeTime = lifeTimeMax;
+        lookingAt();
+
+        isPrepared = true;
+    }
+
+    void lookingAt()
+    {
+        direction = target.position - originRef.position;
+        float rotationZ = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(0, 0, rotationZ);
+    }
+
+
 }

@@ -44,7 +44,7 @@ public class Player : AnimatedObjects
     public void PlayerHeal()
     {
         currentHealth += healthRegenration * Time.fixedDeltaTime;
-        currentHealth = Mathf.Clamp(currentHealth, 0, 100);
+        //currentHealth = Mathf.Clamp(currentHealth, 0, 100);
 
         healthBar.fillAmount = currentHealth / 100f;
     }

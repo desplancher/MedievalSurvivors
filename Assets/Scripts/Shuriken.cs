@@ -2,13 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class  Shuriken : Weapon
+public class  Shuriken : WeaponManager
 {
     void Update()
     {
-        if (playerTransform != null)
+        if (transform != null)
         {
-            transform.RotateAround(playerTransform.position, Vector3.forward, speed * Time.deltaTime);
+            transform.RotateAround(transform.position, Vector3.forward, speed * Time.deltaTime);
         }
     }
 

@@ -16,10 +16,12 @@ public class MasterClass : MonoBehaviour
     public float maxExperience;
     public float experienceMultiplier;
 
-    public int numberProjects;
+    public int numberProjectsMax;
+    public int actualProjects;
     public float sizeProjects;
 
-    public int numberConjurations;
+    public int numberConjurationsMax;
+    public int actualConjurations;
     public float areaConjurationsMultiplier;
 
     public bool isEnemy;
