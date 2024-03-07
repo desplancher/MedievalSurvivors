@@ -72,16 +72,16 @@ public class WeaponManager : MasterClass
                 Debug.Log("Atira");
                 break;
             case 1:
-                Vector3 newPosition = new Vector3(transform.position.x+1, transform.position.y+1,0);
+                Vector3 newPosition = new Vector3((float)(transform.position.x + 0.1), (float)(transform.position.y+0.1), 0);
 
                 GameObject projectile = Instantiate(weaponObject, newPosition, Quaternion.identity);
-                projectile.GetComponent<Weapon>().Preapare(transform,projectile.transform, lifeTimeMax);
+                projectile.GetComponent<Weapon>().Preapare(transform, projectile.transform, lifeTimeMax, damage, rangeConjurations, sizeProjects, speed);
                 break;
             case 2:
                 Vector3 newPositionC = new Vector3(transform.position.x, transform.position.y, 0);
 
                 GameObject projectileC = Instantiate(weaponObject, newPositionC, Quaternion.identity);
-                projectileC.GetComponent<Weapon>().Preapare(transform, projectileC.transform, lifeTimeMax);
+                projectileC.GetComponent<Weapon>().Preapare(transform, projectileC.transform, lifeTimeMax, damage, rangeConjurations, sizeProjects, speed);
                 break;
             default:
                 break;

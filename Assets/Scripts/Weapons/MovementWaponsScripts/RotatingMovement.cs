@@ -17,9 +17,9 @@ public class RotatingMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        timer += Time.deltaTime * mortalObject.speed;
-        float x = Mathf.Cos(timer) * mortalObject.range;
-        float y = Mathf.Sin(timer) * mortalObject.range;
+        timer += Time.deltaTime * mortalObject.actualSpeed;
+        float x = Mathf.Cos(timer) * mortalObject.actualRange;
+        float y = Mathf.Sin(timer) * mortalObject.actualRange;
         transform.position = new Vector3(mortalObject.originRef.position.x - x, mortalObject.originRef.position.y - y, 0);
     }
 }

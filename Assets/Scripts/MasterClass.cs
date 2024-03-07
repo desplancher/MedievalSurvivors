@@ -23,6 +23,7 @@ public class MasterClass : MonoBehaviour
     public int numberConjurationsMax;
     public int actualConjurations;
     public float areaConjurationsMultiplier;
+    public float rangeConjurations;
 
     public bool isEnemy;
     // Start is called before the first frame update
