@@ -9,12 +9,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1145787961474556299}
-  - component: {fileID: 3335936741133756359}
-  - component: {fileID: 1145787961474556301}
   - component: {fileID: 1145787961474556302}
+  - component: {fileID: 7032149622034875157}
+  - component: {fileID: 8183725732571929056}
   m_Layer: 0
-  m_Name: EnemyHead
-  m_TagString: Enemy
+  m_Name: EXP
+  m_TagString: Exp
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -31,79 +31,10 @@ Transform:
   m_LocalScale: {x: 0.23969083, y: 0.23969083, z: 0.23969083}
   m_ConstrainProportionsScale: 1
   m_Children:
-  - {fileID: 1145787963279394276}
+  - {fileID: 1145787963166288094}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3335936741133756359
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1145787961474556297}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e60e175400be27a468a12d839b13d9b2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  additionalHealthRegenration: 0
-  additionalHealth: 0
-  damage: 10
-  defense: 0
-  speed: 3
-  level: 1
-  currentExperience: 0
-  maxExperience: 0
-  experienceMultiplier: 0
-  numberProjectsMax: 0
-  actualProjects: 0
-  sizeProjects: 0
-  numberConjurationsMax: 0
-  actualConjurations: 0
-  areaConjurationsMultiplier: 0
-  rangeConjurations: 0
-  isEnemy: 1
-  maxHealth: 50
-  currentHealth: 0
-  healthRegenration: 0
-  experienceObject: {fileID: 1145787961474556297, guid: 232716d35d71528418433286110174a3, type: 3}
-  experienceValue: 25
-  experienceLifeTime: 1
---- !u!60 &1145787961474556301
-PolygonCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1145787961474556297}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: -0.0774011, y: -0.16961542}
-      - {x: 1.4599674, y: -0.74070454}
-      - {x: 1.7549034, y: -0.43685836}
-      - {x: 1.5856805, y: 0.30260345}
-      - {x: 2.0024705, y: 1.0867345}
-      - {x: 1.7304165, y: 1.9825929}
-      - {x: 0.38617113, y: 2.2967474}
-      - {x: -0.32473546, y: 1.7024243}
-      - {x: -0.42345947, y: 0.7333798}
 --- !u!50 &1145787961474556302
 Rigidbody2D:
   serializedVersion: 4
@@ -125,6 +56,36 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 6
+--- !u!114 &7032149622034875157
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1145787961474556297}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0050a2a7fa6ab974697f7d5d8b82e334, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  experienceValue: 0
+  lifeTime: 0
+--- !u!58 &8183725732571929056
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1145787961474556297}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.6330062, y: 0.29373783}
+  serializedVersion: 2
+  m_Radius: 0.45905712
 --- !u!1 &1145787963166288093
 GameObject:
   m_ObjectHideFlags: 0
@@ -136,7 +97,7 @@ GameObject:
   - component: {fileID: 1145787963166288094}
   - component: {fileID: 1145787963166288095}
   m_Layer: 0
-  m_Name: Head
+  m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -150,11 +111,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1145787963166288093}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.63, y: 0.31, z: 0}
-  m_LocalScale: {x: 5.471384, y: 5.471384, z: 5.471384}
+  m_LocalPosition: {x: 0.63000023, y: 0.3099998, z: 0}
+  m_LocalScale: {x: 5.4713845, y: 5.4713845, z: 5.4713845}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1145787963279394276}
+  m_Father: {fileID: 1145787961474556299}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1145787963166288095
@@ -198,8 +159,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -648822283, guid: 36dc5dec3ffa3c84a972d9a95dad64ff, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  m_Color: {r: 0, g: 0.93673205, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -209,35 +170,3 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &1145787963279394275
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1145787963279394276}
-  m_Layer: 0
-  m_Name: Sprite
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1145787963279394276
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1145787963279394275}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1145787963166288094}
-  m_Father: {fileID: 1145787961474556299}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

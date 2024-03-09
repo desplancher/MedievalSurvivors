@@ -69,10 +69,12 @@ public class Weapon : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        DamageInEnemy(other);
+       // DamageInEnemy(other);
+        GiveDamage(other);
+        
     }
 
-    void DamageInEnemy(Collider2D enemyCollider)
+    void GiveDamage(Collider2D enemyCollider)
     {
         if (enemyCollider.CompareTag("Enemy"))
         {

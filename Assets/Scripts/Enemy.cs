@@ -6,7 +6,11 @@ using UnityEngine;
 public class Enemy : AnimatedObjects
 {
     private Transform playerTransform;
-   
+    public GameObject experienceObject;
+
+    public float experienceValue;
+    public float experienceLifeTime;
+
 
     void Start()
     {
@@ -17,11 +21,12 @@ public class Enemy : AnimatedObjects
     void Update()
     {
         EnemyMovement();
+        EnemyDie();
     }
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        DamageInPlayer(other);
+        GiveDamage(other, "Player");
     }
 
     void EnemyMovement()
@@ -36,12 +41,15 @@ public class Enemy : AnimatedObjects
         }
     }
 
-    void DamageInPlayer(Collider2D playerCollider) // mudar para masterclass
+    void EnemyDie()
     {
-        if (playerCollider.CompareTag("Player"))
+        // Verifica se o inimigo ficou sem vida
+        if (currentHealth <= 0)
         {
-            playerCollider.GetComponent<Player>().TakeDamage(damage);
-
+            GameObject ballOfExperience = Instantiate(experienceObject, transform.position, Quaternion.identity);
+            ballOfExperience.GetComponent<ExperienceDropped>().Prepare(experienceValue, experienceLifeTime);
+            AnimatedObjectDie();                                                                  // Chama a função para lidar com a morte do inimigo
+            
         }
     }
 }

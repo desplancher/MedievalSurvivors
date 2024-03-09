@@ -12,7 +12,7 @@ public class MasterClass : MonoBehaviour
     public int speed;
 
     public int level;
-    public float actualExperience;
+    public float currentExperience;
     public float maxExperience;
     public float experienceMultiplier;
 
@@ -40,7 +40,7 @@ public class MasterClass : MonoBehaviour
 
     public void addEXP(float EXP)
     {
-        actualExperience += EXP;
+        currentExperience += EXP;
     }
 
     private void levelUP(int level)
@@ -52,6 +52,15 @@ public class MasterClass : MonoBehaviour
     public void setLevel()
     {
 
+    }
+
+    public void GiveDamage(Collider2D takeDamageCollider, string takeDamageTag) // mudar para masterclass
+    {
+        if (takeDamageCollider.CompareTag(takeDamageTag))
+        {
+            takeDamageCollider.GetComponent<AnimatedObjects>().TakeDamage(damage);
+
+        }
     }
 
 }

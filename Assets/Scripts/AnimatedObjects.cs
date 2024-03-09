@@ -23,14 +23,8 @@ public class AnimatedObjects : MasterClass
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;                                                    // Reduz a vida atual pelo valor de dano recebido
-
-        // Verifica se o inimigo ficou sem vida
-        if (currentHealth <= 0 && isEnemy == true)
-        {
-            AnimatedObjectDie();                                                                  // Chama a função para lidar com a morte do inimigo
-        }
     }
-    void AnimatedObjectDie()
+    public void AnimatedObjectDie()
     {
         // Implemente o código para lidar com a morte do inimigo aqui
         // Por exemplo, pode ser a reprodução de uma animação de morte, remover o inimigo do jogo, adicionar pontos ao jogador, etc.

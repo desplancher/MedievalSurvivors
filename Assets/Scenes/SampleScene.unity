@@ -340,11 +340,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7758732019211529614, guid: cc4a42500a398574b92e7eef6b1cc83e, type: 3}
       propertyPath: speed
-      value: 2
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7758732019211529614, guid: cc4a42500a398574b92e7eef6b1cc83e, type: 3}
       propertyPath: damage
-      value: 20
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 7758732019211529614, guid: cc4a42500a398574b92e7eef6b1cc83e, type: 3}
+      propertyPath: cooldownTime
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7758732019211529614, guid: cc4a42500a398574b92e7eef6b1cc83e, type: 3}
+      propertyPath: projectsRateMax
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7758732019211529615, guid: cc4a42500a398574b92e7eef6b1cc83e, type: 3}
       propertyPath: m_RootOrder
@@ -763,7 +771,7 @@ MonoBehaviour:
   areaConjurationsMultiplier: 0
   rangeConjurations: 0
   isEnemy: 0
-  maxHealth: 500000
+  maxHealth: 100000
   currentHealth: 0
   healthRegenration: 0.25
   healthBar: {fileID: 1508407874}
