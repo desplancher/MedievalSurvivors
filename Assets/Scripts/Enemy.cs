@@ -22,7 +22,6 @@ public class Enemy : AnimatedObjects
     void OnTriggerEnter2D(Collider2D other)
     {
         DamageInPlayer(other);
-        Debug.Log(other.tag);
     }
 
     void EnemyMovement()
@@ -41,7 +40,6 @@ public class Enemy : AnimatedObjects
     {
         if (playerCollider.CompareTag("Player"))
         {
-            Debug.Log("Bateu2");
             playerCollider.GetComponent<Player>().TakeDamage(damage);
 
         }

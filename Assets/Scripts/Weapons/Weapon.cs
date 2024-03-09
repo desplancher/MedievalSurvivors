@@ -36,6 +36,16 @@ public class Weapon : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Prepara o Objeto que foi instanciado de acordo com os parametros repassados.
+    /// </summary>
+    /// <param name="objRef">Transform do Objeto de partida, usado para definir a direção de saída do disparo.</param>
+    /// <param name="enemyPos">Transform do Objeto de destido, usado para definir a direção de chegada do disparo</param>
+    /// <param name="lifeTimeMax">Tempo de vida do disparo</param>
+    /// <param name="damage">Dano do disparo</param>
+    /// <param name="range">Distancia do disparo em relação ao Player</param>
+    /// <param name="scale">Tamanho do disparo</param>
+    /// <param name="speed">Velocidade do disparo</param>
     public void Preapare(Transform objRef, Transform enemyPos, float lifeTimeMax, int damage, float range, float scale, float speed)
     {
         target = enemyPos;
