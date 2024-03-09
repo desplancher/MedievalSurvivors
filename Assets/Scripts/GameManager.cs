@@ -8,18 +8,35 @@ public class GameManager : MonoBehaviour
     public GameObject[] enemyPrefabs;   // Array de prefabs de inimigos
     public Camera gameCamera;           // Referencia a camera
     public float spawnInterval = 1.0f;  // Intervalo em segundos entre o surgimento de inimigos
+    
 
     private float nextSpawnTime; // Momento do próximo surgimento de inimigo
     public float distanceSpawn;
 
+    public Player playerObject;
+    public GameObject levelUpPanel;
+
+    public int currentLevel;
+    public int lastLevel;
+
     void Start()
     {
         nextSpawnTime = Time.time + spawnInterval;  // Defina o próximo momento de surgimento para o início do jogo
+        currentLevel = playerObject.level;
+        lastLevel = currentLevel;
     }
 
     void Update()
     {
         SpawnRandomEnemy();
+
+        currentLevel = playerObject.level;
+        if (currentLevel != lastLevel ) 
+        {
+            OpenPanelLevelUp();
+            lastLevel = currentLevel;
+        }
+
     }
 
     void SpawnRandomEnemy()
@@ -71,5 +88,23 @@ public class GameManager : MonoBehaviour
 
 
         }  
+    }
+
+    void OpenPanelLevelUp()
+    {
+        levelUpPanel.SetActive(true);
+        Time.timeScale = 0;
+    }
+
+    public void EvolveWeapon1()
+    {
+        levelUpPanel.SetActive(false);
+        Time.timeScale = 1;
+    }
+
+    public void EvolveWeapon2()
+    {
+        levelUpPanel.SetActive(false);
+        Time.timeScale = 1;
     }
 }

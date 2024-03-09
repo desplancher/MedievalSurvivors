@@ -106,6 +106,7 @@ public class Player : AnimatedObjects
         maxExperience *= 2;
         currentExperience = excedentExperience;
         experienceStatus = ExpStatus.InProgress;
+        
     }
 
     void ExperienceStatusSelector()
@@ -124,4 +125,6 @@ public class Player : AnimatedObjects
                 break;
         }
     }
+
+
 }
