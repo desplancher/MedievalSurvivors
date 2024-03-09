@@ -24,7 +24,7 @@ public class Player : AnimatedObjects
     {
         experienceStatus = ExpStatus.InProgress;
         currentHealth = maxHealth;
-        //expBar.fillAmount = 0.0f;
+        
     }
 
     void Update()
@@ -78,7 +78,6 @@ public class Player : AnimatedObjects
         }
     }
 
-    
     void OnTriggerEnter2D(Collider2D other)
     {
 
