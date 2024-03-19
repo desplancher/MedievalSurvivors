@@ -2,6 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum AllWeapons
+{
+    Shuriken,
+    Fireball,
+    Arma3,
+    Arma4,
+    Arma5,
+    Arma6,
+    Arma7
+}
+
 public enum WeaponStatus
 {
     Cooldown,
@@ -12,6 +23,8 @@ public enum WeaponStatus
 
 public class WeaponManager : MasterClass
 {
+    public AllWeapons nameWeapon;
+
     public GameObject targetObject;
     public GameObject[] allEnemyes;
     public GameObject nearestEnemy;

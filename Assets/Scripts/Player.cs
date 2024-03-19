@@ -13,7 +13,6 @@ public enum ExpStatus
 public class Player : AnimatedObjects
 {
     public ExpStatus experienceStatus;
-
     
     public Image healthBar;
     public Image expBar;

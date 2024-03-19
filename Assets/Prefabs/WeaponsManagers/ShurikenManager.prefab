@@ -24,7 +24,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7767762335666623364}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 4.1720414, y: 4.1720414, z: 4.1720414}
   m_ConstrainProportionsScale: 0
@@ -44,22 +44,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e3548d4061bb80448456aefdc81b0f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  objectName: Shuriken
   additionalHealthRegenration: 0
   additionalHealth: 0
-  damage: 10
+  damage: 100
   defense: 0
-  speed: 0
+  speed: 5
   level: 2
-  actualExperience: 0
+  currentExperience: 0
   maxExperience: 0
   experienceMultiplier: 0
   numberProjectsMax: 1
   actualProjects: 0
-  sizeProjects: 0
+  sizeProjects: 5
   numberConjurationsMax: 0
   actualConjurations: 0
   areaConjurationsMultiplier: 0
+  rangeConjurations: 1.5
   isEnemy: 0
+  targetObject: {fileID: 0}
+  allEnemyes: []
+  nearestEnemy: {fileID: 0}
+  distanteToNearestEnemy: 0
   cooldownTime: 3
   actualCooldown: 0
   lifeTimeMax: 1

@@ -2,8 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+
 public class Weapon : MonoBehaviour
 {
+    
     public Transform originRef;
     public Transform target;
     public Vector3 direction;

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class MasterClass : MonoBehaviour
 {
+    public string objectName;
+
     public float additionalHealthRegenration;
     public float additionalHealth;
 
@@ -12,6 +14,7 @@ public class MasterClass : MonoBehaviour
     public int speed;
 
     public int level;
+    public int maxLevel;
     public float currentExperience;
     public float maxExperience;
     public float experienceMultiplier;
