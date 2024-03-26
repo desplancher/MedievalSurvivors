@@ -40,6 +40,7 @@ public class WeaponManager : MasterClass
     public GameObject weaponObject;
 
     public WeaponStatus weaponStatus = WeaponStatus.Restarting;
+
     private void Start()
     {
         
@@ -52,8 +53,8 @@ public class WeaponManager : MasterClass
     void WaitingNextFire()
     {
         actualProjecstRate -= Time.deltaTime;
-        
-        if (actualProjecstRate <= 0) 
+
+        if (actualProjecstRate <= 0)
         {
             weaponStatus = WeaponStatus.Firing;
         }
@@ -64,11 +65,14 @@ public class WeaponManager : MasterClass
     /// </summary>
     void Firing()
     {
+
         FindNearestEnemy();
+
+        
         switch (level)
         {
             case 0:
-                Debug.Log("Atira");
+                
                 break;
             case 1:
                 //Vector3 newPosition = new Vector3((float)(transform.position.x + 0.1), (float)(transform.position.y + 0.1), 0);
@@ -78,7 +82,6 @@ public class WeaponManager : MasterClass
                 break;
             case 2:
                 //Vector3 newPositionC = new Vector3(transform.position.x, transform.position.y, 0);
-
                 GameObject projectileC = Instantiate(weaponObject, transform.position, Quaternion.identity);
                 projectileC.GetComponent<Weapon>().Preapare(transform, nearestEnemy.transform, lifeTimeMax, damage, rangeConjurations, sizeProjects, speed);
                 break;
@@ -94,7 +97,7 @@ public class WeaponManager : MasterClass
     /// <summary>
     /// Reinicia os Atributos inicias da Arma.
     /// </summary>
-    void RestartingWeapon() 
+    void RestartingWeapon()
     {
         weaponStatus = WeaponStatus.Cooldown;
         actualCooldown = cooldownTime;
@@ -144,7 +147,7 @@ public class WeaponManager : MasterClass
             nearestEnemy = allEnemyes[0];
             distanteToNearestEnemy = Vector2.Distance(transform.position, nearestEnemy.transform.position);
         }
-        
+
         for (int i = 1; i < allEnemyes.Length; i++)
         {
             float distanceToCurrentEnemy = Vector2.Distance(transform.position, allEnemyes[i].transform.position);
@@ -158,5 +161,5 @@ public class WeaponManager : MasterClass
         }
     }
 
-  
+
 }

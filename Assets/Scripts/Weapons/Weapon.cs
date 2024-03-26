@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
-    
+
     public Transform originRef;
     public Transform target;
     public Vector3 direction;
@@ -22,7 +22,7 @@ public class Weapon : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -31,7 +31,7 @@ public class Weapon : MonoBehaviour
         if (isPrepared)
         {
             actualLifeTime -= Time.deltaTime;
-        } 
+        }
 
         if (actualLifeTime <= 0)
         {
@@ -72,9 +72,9 @@ public class Weapon : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-       // DamageInEnemy(other);
+        // DamageInEnemy(other);
         GiveDamage(other);
-        
+
     }
 
     void GiveDamage(Collider2D enemyCollider)

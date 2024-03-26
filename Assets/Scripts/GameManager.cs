@@ -45,7 +45,7 @@ public class GameManager : MonoBehaviour
         currentLevel = playerObject.level;
         if (currentLevel != lastLevel ) 
         {
-            levelUpPanelGroup.OpenPanelNormal();
+            //levelUpPanelGroup.OpenPanelNormal();
             lastLevel = currentLevel;
         }
 
