@@ -18,10 +18,10 @@ public class ExperienceDropped : MonoBehaviour
         
     }
 
-    public void Prepare(float expValue, float life)
+    public void Prepare(float expValue)
     {
         experienceValue = expValue;
-        //lifeTime = life;
+        
         
     }
 

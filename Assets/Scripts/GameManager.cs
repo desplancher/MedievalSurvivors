@@ -9,7 +9,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    List<int> listNumbers;
+    
 
 
     public GameObject[] enemyPrefabs;   // Array de prefabs de inimigos
@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviour
     public float distanceSpawn;
 
     public Player playerObject;
-    public GameObject levelUpPanel;
+    public UpgradeGroup levelUpPanelGroup;
 
     public int currentLevel;
     public int lastLevel;
@@ -35,7 +35,7 @@ public class GameManager : MonoBehaviour
         currentLevel = playerObject.level;
         lastLevel = currentLevel;
         currentWeapons = 1;
-        listNumbers = new List<int>();
+        
     }
 
     void Update()
@@ -45,20 +45,20 @@ public class GameManager : MonoBehaviour
         currentLevel = playerObject.level;
         if (currentLevel != lastLevel ) 
         {
-            OpenPanelLevelUp();
+            levelUpPanelGroup.OpenPanelNormal();
             lastLevel = currentLevel;
         }
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            if(/*currentWeapons < maxWeapons*/false)
+            if (currentWeapons < maxWeapons)
             {
-                SortingAll();
+                levelUpPanelGroup.OpenPanelNormal();
             }
             else
             {
-                SortingWithMaxWeapons();
-                
+                levelUpPanelGroup.OpenPanelFullWeapons(playerObject.GetComponentsInChildren<WeaponManager>());
+
             }
         }
     }
@@ -108,109 +108,6 @@ public class GameManager : MonoBehaviour
             {
                 nextSpawnTime = Time.time;
             }
-         
-
-
         }  
-    }
-
-    void OpenPanelLevelUp()
-    {
-        levelUpPanel.SetActive(true);
-        Time.timeScale = 0;
-        //SortingWithMaxWeapons();
-        //PrepareLevelUpPanel();
-    }
-
-    public void EvolveWeapon1()
-    {
-        levelUpPanel.SetActive(false);
-        Time.timeScale = 1;
-    }
-
-    public void EvolveWeapon2()
-    {
-        levelUpPanel.SetActive(false);
-        Time.timeScale = 1;
-    }
-
-    public void EvolveWeapon3()
-    {
-        levelUpPanel.SetActive(false);
-        Time.timeScale = 1;
-    }
-
-    public void EvolveWeapon4()
-    {
-        levelUpPanel.SetActive(false);
-        Time.timeScale = 1;
-    }
-
-    public void SortingAll()
-    {
-        
-        listNumbers.Clear();
-
-        int WeaponsCount = Enum.GetNames(typeof(AllWeapons)).Length;
-
-        //int randomWeapon = UnityEngine.Random.Range(0, WeaponsCount);
-
-        //Debug.Log((AllWeapons)randomWeapon);
-
-        var rand = new System.Random();
-
-        do
-        {
-            int numbers = rand.Next(0, WeaponsCount);
-            if (!listNumbers.Contains(numbers))
-            {
-                listNumbers.Add(numbers);
-            }
-        } while (listNumbers.Count < 4);
-
-        //Debug.Log(listNumbers[0]);
-        //Debug.Log(listNumbers[1]);
-       // Debug.Log(listNumbers[2]);
-        //Debug.Log(listNumbers[3]);
-        
-    }
-
-    public void SortingWithMaxWeapons()
-    {
-        listNumbers.Clear();
-
-        WeaponManager[] WeaponsInPlayer = playerObject.GetComponentsInChildren<WeaponManager>();
-        
-        for(int i = 0; i < WeaponsInPlayer.Length; i++)
-        {
-            if (WeaponsInPlayer[i].level < WeaponsInPlayer[i].maxLevel)
-            {
-                listNumbers.Add((int)WeaponsInPlayer[i].nameWeapon);
-            }
-        }
-
-        listNumbers.Sort();
-
-        //Debug.Log(listNumbers[0]);
-        //Debug.Log(listNumbers[1]);
-        
-    }
-
-    public void PrepareLevelUpPanel()
-    {
-        for (int i = 1; i < 5; i++)
-        {
-            GameObject.Find("ButtonUpgrade" + i).SetActive(false);
-            Debug.Log("ButtonUpgrade" + i);
-        }
-
-        int limit = (listNumbers.Count > 4)? 4: listNumbers.Count;
-
-        for (int i = 0;i < limit;i++)
-        {
-            GameObject.Find("ButtonUpgrade" + (i+1)).SetActive(true);
-        }
-
-
     }
 }
