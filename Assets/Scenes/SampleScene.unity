@@ -1778,7 +1778,7 @@ MonoBehaviour:
   spawnInterval: 1
   distanceSpawn: 4
   playerObject: {fileID: 810957468}
-  levelUpPanel: {fileID: 1730525548}
+  levelUpPanelGroup: {fileID: 1868415599}
   currentLevel: 0
   lastLevel: 0
   maxWeapons: 0
@@ -2018,6 +2018,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0187974941f7c540940eba279255fed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  listNumbers: 
   panelObject: {fileID: 1072036971}
   buttonBase: {fileID: 2030994792424626486, guid: 08be11ae29c33ce4ebf6458c9bc712a2, type: 3}
 --- !u!4 &1896093446 stripped
