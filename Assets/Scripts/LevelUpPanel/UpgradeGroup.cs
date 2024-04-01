@@ -55,7 +55,7 @@ public class UpgradeGroup : MonoBehaviour
         {
             if (WeaponsInPlayer[i].level < WeaponsInPlayer[i].maxLevel)
             {
-                listNumbers.Add((int)WeaponsInPlayer[i].nameWeapon);
+               // listNumbers.Add((int)WeaponsInPlayer[i].nameWeapon);
             }
         }
 

@@ -1,6 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+
+
 
 public enum AllWeapons
 {
@@ -23,19 +26,25 @@ public enum WeaponStatus
 
 public class WeaponManager : MasterClass
 {
-    public AllWeapons nameWeapon;
+    //public AllWeapons nameWeapon;
 
-    public GameObject targetObject;
-    public GameObject[] allEnemyes;
-    public GameObject nearestEnemy;
-    public float distanteToNearestEnemy;
+    //public GameObject targetObject;
+
+    private GameObject[] allEnemyes;
+    private GameObject nearestEnemy;
+    private float distanteToNearestEnemy;
 
 
     public float cooldownTime;
-    public float actualCooldown;
+    private float actualCooldown;
+
     public float lifeTimeMax;
+
     public float projectsRateMax;
-    public float actualProjecstRate;
+    private float actualProjecstRate;
+
+    public IWeaponLevelSelector cLevel;
+    
 
     public GameObject weaponObject;
 
@@ -43,7 +52,7 @@ public class WeaponManager : MasterClass
 
     private void Start()
     {
-        
+        cLevel = new FireBallLevelSelector();
     }
     void Update()
     {
@@ -68,26 +77,8 @@ public class WeaponManager : MasterClass
 
         FindNearestEnemy();
 
-        
-        switch (level)
-        {
-            case 0:
-                
-                break;
-            case 1:
-                //Vector3 newPosition = new Vector3((float)(transform.position.x + 0.1), (float)(transform.position.y + 0.1), 0);
+        cLevel.SelectLevel(weaponObject, gameObject.transform, nearestEnemy, level, lifeTimeMax, damage, rangeConjurations, rangeConjurations, speed);
 
-                GameObject projectile = Instantiate(weaponObject, transform.position, Quaternion.identity);
-                projectile.GetComponent<Weapon>().Preapare(transform, nearestEnemy.transform, lifeTimeMax, damage, rangeConjurations, sizeProjects, speed);
-                break;
-            case 2:
-                //Vector3 newPositionC = new Vector3(transform.position.x, transform.position.y, 0);
-                GameObject projectileC = Instantiate(weaponObject, transform.position, Quaternion.identity);
-                projectileC.GetComponent<Weapon>().Preapare(transform, nearestEnemy.transform, lifeTimeMax, damage, rangeConjurations, sizeProjects, speed);
-                break;
-            default:
-                break;
-        }
         actualProjects--;
         actualProjecstRate = projectsRateMax;
 
