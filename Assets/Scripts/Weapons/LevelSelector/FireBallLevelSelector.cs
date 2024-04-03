@@ -65,6 +65,7 @@ public class FireBallLevelSelector : IWeaponLevelSelector
         cooldownTime = 3;
         projectsRateMax = 1;
         lifeTimeMax = 5;
+        speed = 10;
     }
 
     private void LevelTwo()
