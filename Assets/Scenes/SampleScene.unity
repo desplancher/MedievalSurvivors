@@ -376,6 +376,14 @@ PrefabInstance:
       propertyPath: level
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7758732019211529614, guid: cc4a42500a398574b92e7eef6b1cc83e, type: 3}
+      propertyPath: cooldownTime
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7758732019211529614, guid: cc4a42500a398574b92e7eef6b1cc83e, type: 3}
+      propertyPath: projectsRateMax
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7758732019211529615, guid: cc4a42500a398574b92e7eef6b1cc83e, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -780,9 +788,7 @@ MonoBehaviour:
   objectName: 
   additionalHealthRegenration: 0
   additionalHealth: 0
-  damage: 0
   defense: 0
-  speed: 5
   level: 1
   maxLevel: 0
   currentExperience: 0
@@ -1771,7 +1777,7 @@ MonoBehaviour:
   - {fileID: 1145787961474556297, guid: a0b5244744bfccd4d8ccc3a6bcb4115b, type: 3}
   - {fileID: 1145787961474556297, guid: b61f071bd060f9f4597db3f38b458846, type: 3}
   gameCamera: {fileID: 519420031}
-  spawnInterval: 1
+  spawnInterval: 0.25
   distanceSpawn: 4
   playerObject: {fileID: 810957468}
   levelUpPanelGroup: {fileID: 1868415599}

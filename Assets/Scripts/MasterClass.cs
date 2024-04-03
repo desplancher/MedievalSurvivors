@@ -11,7 +11,7 @@ public class MasterClass : MonoBehaviour
 
     public int damage;
     public int defense;
-    public int speed;
+    public float speed;
 
     public int level;
     public int maxLevel;

@@ -4,151 +4,90 @@ using UnityEngine;
 using UnityEngine.UIElements;
 using static UnityEngine.RuleTile.TilingRuleOutput;
 
-public interface IWeaponLevelSelector
+ public abstract class IWeaponLevelSelector : MonoBehaviour
 {
-    void SelectLevel(GameObject weaponObject, UnityEngine.Transform weaponManagerTransform, GameObject nearestEnemy, int level, float lifeTimeMax, int damage, float range, float scale, float speed);
+    public float cooldownTime;
+    public float projectsRateMax;
+    public float lifeTimeMax;
+
+    public abstract void SpawnWeapon(GameObject weaponObject, UnityEngine.Transform weaponManagerTransform, GameObject nearestEnemy, int level, float lifeTimeMax, int damage, float range, float scale, float speed);
+
 
 
 
 }
 
+
 public class FireBallLevelSelector : IWeaponLevelSelector
 {
-
-    // Update is called once per frame
-    void Update()
+    public void Start()
     {
-        
-        
+        LevelOne();
     }
 
-    public void SelectLevel(GameObject weaponObject, UnityEngine.Transform weaponManagerTransform, GameObject nearestEnemy,int level, float lifeTimeMax, int damage, float range, float scale, float speed)
+    public override void SpawnWeapon(GameObject weaponObject, UnityEngine.Transform weaponManagerTransform, GameObject nearestEnemy,int level, float lifeTimeMax, int damage, float range, float scale, float speed)
+    {
+        SelectLevel(level);
+
+        GameObject projectile = UnityEngine.Transform.Instantiate(weaponObject, weaponManagerTransform.position, Quaternion.identity);
+        projectile.GetComponent<Weapon>().Preapare(weaponManagerTransform, nearestEnemy.transform, lifeTimeMax, damage, range, scale, speed);
+
+    }
+
+    public void SelectLevel(int level)
     {
         switch (level)
         {
             case 1:
-                LevelOne(weaponObject, weaponManagerTransform, nearestEnemy, lifeTimeMax, damage, range, scale, speed);
+                LevelOne();
 
                 break;
-            /*case 2:
-                LevelTwo(lvl, extraDamage, origem, projetil);
+            case 2:
+                LevelTwo();
                 break;
             case 3:
-                LevelTree(lvl, extraDamage, origem, projetil);
+                LevelTree();
                 break;
             case 4:
-                LevelFour(lvl, extraDamage, origem, projetil);
+                LevelFour();
                 break;
             case 5:
-                LevelFive(lvl, extraDamage, origem, projetil);
+                LevelFive();
                 break;
-            */
-
             default:
                 break;
         }
-
-
     }
 
-    private void LevelOne(GameObject weaponObject, UnityEngine.Transform weaponManagerTransform,
-                          GameObject nearestEnemy, float lifeTimeMax, int damage, float rangeConjurations, float sizeProjects, float speed  )
+    public void LevelOne()
     {
-        GameObject projectile = UnityEngine.Transform.Instantiate(weaponObject, weaponManagerTransform.position, Quaternion.identity);
-        projectile.GetComponent<Weapon>().Preapare(weaponManagerTransform, nearestEnemy.transform, lifeTimeMax, damage, rangeConjurations, sizeProjects, speed);
+        cooldownTime = 3;
+        projectsRateMax = 1;
+        lifeTimeMax = 5;
     }
 
+    private void LevelTwo()
+    {
+        cooldownTime = 2;
+        projectsRateMax = 0.5f;
+    }
 
-   // GameObject projectile = Instantiate(weaponObject, transform.position, Quaternion.identity);
-   // projectile.GetComponent<Weapon>().Preapare(transform, nearestEnemy.transform, lifeTimeMax, damage, rangeConjurations, sizeProjects, speed);
+    private void LevelTree()
+    {
+        cooldownTime = 1;
+        projectsRateMax = 0.25f;
+    }
 
-    /*
-        private void LevelTwo(int lvl, float extraDamage, Vector3 origem, GameObject projetil)
-        {
-            Weapon arma = Transform.Instantiate(projetil, origem, Quaternion.identity).GetComponent<Weapon>();
-            arma.lvlWeapon = lvl;
-            arma.power = extraDamage;
+    private void LevelFour()
+    {
+        cooldownTime = 0.5f;
+        projectsRateMax = 0.15f;
+    }
 
-            Weapon arma1 = Transform.Instantiate(projetil, origem, Quaternion.identity).GetComponent<Weapon>();
-            arma1.lvlWeapon = lvl - 1;
-            arma1.power = extraDamage;
-            arma1.transform.Rotate(0, 0, 180);
-
-        }
-
-
-        private void LevelTree(int lvl, float extraDamage, Vector3 origem, GameObject projetil)
-        {
-            Weapon arma1 = Transform.Instantiate(projetil, origem, Quaternion.identity).GetComponent<Weapon>();
-            arma1.lvlWeapon = lvl - 1;
-            arma1.power = extraDamage;
-            arma1.transform.Rotate(0, 0, 0);
-
-            Weapon arma2 = Transform.Instantiate(projetil, origem, Quaternion.identity).GetComponent<Weapon>();
-            arma2.lvlWeapon = lvl - 1;
-            arma2.power = extraDamage;
-            arma2.transform.Rotate(0, 0, 120);
-
-            Weapon arma3 = Transform.Instantiate(projetil, origem, Quaternion.identity).GetComponent<Weapon>();
-            arma3.lvlWeapon = lvl;
-            arma3.power = extraDamage;
-            arma3.transform.Rotate(0, 0, 240);
-
-        }
-
-        private void LevelFour(int lvl, float extraDamage, Vector3 origem, GameObject projetil)
-        {
-            Weapon arma = Transform.Instantiate(projetil, origem, Quaternion.identity).GetComponent<Weapon>();
-            arma.lvlWeapon = lvl;
-            arma.power = extraDamage;
-
-            Weapon arma1 = Transform.Instantiate(projetil, origem, Quaternion.identity).GetComponent<Weapon>();
-            arma1.lvlWeapon = lvl - 1;
-            arma1.power = extraDamage;
-            arma1.transform.Rotate(0, 0, 90);
-
-            Weapon arma2 = Transform.Instantiate(projetil, origem, Quaternion.identity).GetComponent<Weapon>();
-            arma2.lvlWeapon = lvl - 1;
-            arma2.power = extraDamage;
-            arma2.transform.Rotate(0, 0, -90);
-
-            Weapon arma3 = Transform.Instantiate(projetil, origem, Quaternion.identity).GetComponent<Weapon>();
-            arma3.lvlWeapon = lvl;
-            arma3.power = extraDamage;
-            arma3.transform.Rotate(0, 0, 180);
-
-        }
-
-        private void LevelFive(int lvl, float extraDamage, Vector3 origem, GameObject projetil)
-        {
-            MeuLvlQuatro(lvl, extraDamage, origem, projetil);
-
-            Weapon arma = Transform.Instantiate(projetil, origem, Quaternion.identity).GetComponent<Weapon>();
-            arma.lvlWeapon = lvl;
-            arma.power = extraDamage;
-            arma.transform.Rotate(0, 0, 45);
-
-            Weapon arma1 = Transform.Instantiate(projetil, origem, Quaternion.identity).GetComponent<Weapon>();
-            arma1.lvlWeapon = lvl - 1;
-            arma1.power = extraDamage;
-            arma1.transform.Rotate(0, 0, 135);
-
-            Weapon arma2 = Transform.Instantiate(projetil, origem, Quaternion.identity).GetComponent<Weapon>();
-            arma2.lvlWeapon = lvl - 1;
-            arma2.power = extraDamage;
-            arma2.transform.Rotate(0, 0, -45);
-
-            Weapon arma3 = Transform.Instantiate(projetil, origem, Quaternion.identity).GetComponent<Weapon>();
-            arma3.lvlWeapon = lvl;
-            arma3.power = extraDamage;
-            arma3.transform.Rotate(0, 0, -135);
-
-        }
-
-
-    */
-
-
-
+    private void LevelFive()
+    {
+        cooldownTime = 0.25f;
+        projectsRateMax = 0.05f;
+    }
 
 }

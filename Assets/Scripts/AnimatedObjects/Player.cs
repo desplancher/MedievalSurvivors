@@ -114,7 +114,7 @@ public class Player : AnimatedObjects
         {
             case ExpStatus.LevelUp:
                 PlayerLevelUp();
-                Debug.Log("Level UP !!");
+                
                 break;
             case ExpStatus.InProgress:
                 

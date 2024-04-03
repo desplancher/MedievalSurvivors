@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-
-
 public enum AllWeapons
 {
     Shuriken,
@@ -26,73 +24,65 @@ public enum WeaponStatus
 
 public class WeaponManager : MasterClass
 {
-    //public AllWeapons nameWeapon;
+    public GameObject[] allEnemyes;
+    public GameObject nearestEnemy;
+    public float distanteToNearestEnemy;
 
-    //public GameObject targetObject;
-
-    private GameObject[] allEnemyes;
-    private GameObject nearestEnemy;
-    private float distanteToNearestEnemy;
-
-
-    public float cooldownTime;
+    private float cooldownTime;
     private float actualCooldown;
 
     public float lifeTimeMax;
 
-    public float projectsRateMax;
-    private float actualProjecstRate;
+    private float projectsRateMax;
+    private float actualProjectsRate;
 
-    public IWeaponLevelSelector cLevel;
-    
+    private IWeaponLevelSelector cLevel;
 
     public GameObject weaponObject;
 
-    public WeaponStatus weaponStatus = WeaponStatus.Restarting;
+    private WeaponStatus weaponStatus = WeaponStatus.Restarting;
 
     private void Start()
     {
-        cLevel = new FireBallLevelSelector();
+        WeaponLevelSelector();
+        LevelSelectorStatus();
     }
+
     void Update()
     {
         WeaponStatusSelector();
+        FindNearestEnemy();
     }
 
     void WaitingNextFire()
     {
-        actualProjecstRate -= Time.deltaTime;
+        actualProjectsRate -= Time.deltaTime;
 
-        if (actualProjecstRate <= 0)
+        if (actualProjectsRate <= 0)
         {
             weaponStatus = WeaponStatus.Firing;
         }
     }
 
-    /// <summary>
-    /// Cria / Instancia o Prefab da arma
-    /// </summary>
     void Firing()
     {
-
-        FindNearestEnemy();
-
-        cLevel.SelectLevel(weaponObject, gameObject.transform, nearestEnemy, level, lifeTimeMax, damage, rangeConjurations, rangeConjurations, speed);
+        cLevel.SpawnWeapon(weaponObject, gameObject.transform, nearestEnemy, level, lifeTimeMax, damage, rangeConjurations, rangeConjurations, speed);
+        LevelSelectorStatus();
 
         actualProjects--;
-        actualProjecstRate = projectsRateMax;
+        actualProjectsRate = projectsRateMax;
 
         weaponStatus = (actualProjects <= 0) ? WeaponStatus.Restarting : WeaponStatus.BetweenFire;
     }
 
     /// <summary>
-    /// Reinicia os Atributos inicias da Arma.
+    /// Reinicia os Atributos iniciais da Arma.
     /// </summary>
     void RestartingWeapon()
     {
         weaponStatus = WeaponStatus.Cooldown;
         actualCooldown = cooldownTime;
-        actualProjecstRate = projectsRateMax;
+        actualProjectsRate = projectsRateMax;
         actualProjects = numberProjectsMax;
     }
 
@@ -138,11 +128,14 @@ public class WeaponManager : MasterClass
             nearestEnemy = allEnemyes[0];
             distanteToNearestEnemy = Vector2.Distance(transform.position, nearestEnemy.transform.position);
         }
+        else
+        {
+            weaponStatus = WeaponStatus.Restarting;
+        }
 
         for (int i = 1; i < allEnemyes.Length; i++)
         {
             float distanceToCurrentEnemy = Vector2.Distance(transform.position, allEnemyes[i].transform.position);
-
 
             if (distanceToCurrentEnemy < distanteToNearestEnemy)
             {
@@ -152,5 +145,23 @@ public class WeaponManager : MasterClass
         }
     }
 
+    void WeaponLevelSelector()
+    {
+        switch (objectName)
+        {
+            case "FireBall":
+                cLevel = gameObject.AddComponent<FireBallLevelSelector>();
+                break;
+            case "Shuriken":
+                //cLevel = new FireBallLevelSelector();  // Comentado, pois causa erro
+                break;
+        }
+    }
 
+    void LevelSelectorStatus()
+    {
+        cooldownTime = cLevel.cooldownTime;
+        projectsRateMax = cLevel.projectsRateMax;
+        lifeTimeMax = cLevel.lifeTimeMax;
+    }
 }
