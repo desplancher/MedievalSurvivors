@@ -9,6 +9,7 @@ using static UnityEngine.RuleTile.TilingRuleOutput;
     public float cooldownTime;
     public float projectsRateMax;
     public float lifeTimeMax;
+    public float speed;
 
     public abstract void SpawnWeapon(GameObject weaponObject, UnityEngine.Transform weaponManagerTransform, GameObject nearestEnemy, int level, float lifeTimeMax, int damage, float range, float scale, float speed);
 

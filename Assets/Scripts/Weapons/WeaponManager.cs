@@ -28,19 +28,19 @@ public class WeaponManager : MasterClass
     public GameObject nearestEnemy;
     public float distanteToNearestEnemy;
 
-    private float cooldownTime;
-    private float actualCooldown;
+    public float cooldownTime;
+    public float actualCooldown;
 
     public float lifeTimeMax;
 
-    private float projectsRateMax;
-    private float actualProjectsRate;
+    public float projectsRateMax;
+    public float actualProjectsRate;
 
-    private IWeaponLevelSelector cLevel;
+    public IWeaponLevelSelector cLevel;
 
     public GameObject weaponObject;
 
-    private WeaponStatus weaponStatus = WeaponStatus.Restarting;
+    public WeaponStatus weaponStatus = WeaponStatus.Restarting;
 
     private void Start()
     {
@@ -153,7 +153,7 @@ public class WeaponManager : MasterClass
                 cLevel = gameObject.AddComponent<FireBallLevelSelector>();
                 break;
             case "Shuriken":
-                //cLevel = new FireBallLevelSelector();  // Comentado, pois causa erro
+                cLevel = gameObject.AddComponent<ShurikenLevelSelector>();  // Comentado, pois causa erro
                 break;
         }
     }
@@ -163,5 +163,6 @@ public class WeaponManager : MasterClass
         cooldownTime = cLevel.cooldownTime;
         projectsRateMax = cLevel.projectsRateMax;
         lifeTimeMax = cLevel.lifeTimeMax;
+        speed = cLevel.speed;
     }
 }
