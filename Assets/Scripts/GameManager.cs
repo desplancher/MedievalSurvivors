@@ -46,7 +46,9 @@ public class GameManager : MonoBehaviour
         if (currentLevel != lastLevel ) 
         {
             //levelUpPanelGroup.OpenPanelNormal();
+
             lastLevel = currentLevel;
+
         }
 
         if (Input.GetKeyDown(KeyCode.Space))

@@ -45,13 +45,14 @@ public class WeaponManager : MasterClass
     private void Start()
     {
         WeaponLevelSelector();
-        LevelSelectorStatus();
+        ChangeLevel(level);
     }
 
     void Update()
     {
         WeaponStatusSelector();
         FindNearestEnemy();
+        //ChangeLevel(level);
     }
 
     void WaitingNextFire()
@@ -66,9 +67,9 @@ public class WeaponManager : MasterClass
 
     void Firing()
     {
+        ChangeLevel(level);
         cLevel.SpawnWeapon(weaponObject, gameObject.transform, nearestEnemy, level, lifeTimeMax, damage, rangeConjurations, rangeConjurations, speed);
-        LevelSelectorStatus();
-
+        
         actualProjects--;
         actualProjectsRate = projectsRateMax;
 
@@ -150,15 +151,16 @@ public class WeaponManager : MasterClass
         switch (objectName)
         {
             case "FireBall":
-                cLevel = gameObject.AddComponent<FireBallLevelSelector>();
+                cLevel = new FireBallLevelSelector();
                 break;
             case "Shuriken":
-                cLevel = gameObject.AddComponent<ShurikenLevelSelector>();  // Comentado, pois causa erro
+                cLevel = new ShurikenLevelSelector();  
                 break;
+            default : break;
         }
     }
 
-    void LevelSelectorStatus()
+    void ChangeLevel(int level)
     {
         cooldownTime = cLevel.cooldownTime;
         projectsRateMax = cLevel.projectsRateMax;

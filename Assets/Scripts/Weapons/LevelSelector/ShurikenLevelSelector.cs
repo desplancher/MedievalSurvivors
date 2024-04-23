@@ -4,12 +4,43 @@ using UnityEngine;
 
 public class ShurikenLevelSelector : IWeaponLevelSelector
 {
+    private float _cooldownTime;
+    public float cooldownTime  // read-write instance property
+    {
+        get => _cooldownTime;
+        set => _cooldownTime = value;
+    }
+
+    private float _projectsRateMax;
+    public float projectsRateMax
+    {
+        get => _projectsRateMax;
+        set => _projectsRateMax = value;
+
+    }
+
+    private float _lifeTimeMax;
+    public float lifeTimeMax
+    {
+        get => _lifeTimeMax;
+        set => _lifeTimeMax = value;
+
+    }
+
+    private float _speed;
+    public float speed
+    {
+        get => _speed;
+        set => _speed = value;
+
+    }
+
     public void Start()
     {
         LevelOne();
     }
 
-    public override void SpawnWeapon(GameObject weaponObject, UnityEngine.Transform weaponManagerTransform, GameObject nearestEnemy, int level, float lifeTimeMax, int damage, float range, float scale, float speed)
+    public void SpawnWeapon(GameObject weaponObject, UnityEngine.Transform weaponManagerTransform, GameObject nearestEnemy, int level, float lifeTimeMax, int damage, float range, float scale, float speed)
     {
         SelectLevel(level);
 

@@ -1,19 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements;
-using static UnityEngine.RuleTile.TilingRuleOutput;
+//using UnityEngine.UIElements;
+//using static UnityEngine.RuleTile.TilingRuleOutput;
 
- public abstract class IWeaponLevelSelector : MonoBehaviour
+ public interface IWeaponLevelSelector
 {
-    public float cooldownTime;
-    public float projectsRateMax;
-    public float lifeTimeMax;
-    public float speed;
+    void SpawnWeapon(GameObject weaponObject, Transform weaponManagerTransform, GameObject nearestEnemy, int level, float lifeTimeMax, int damage, float range, float scale, float speed);
 
-    public abstract void SpawnWeapon(GameObject weaponObject, UnityEngine.Transform weaponManagerTransform, GameObject nearestEnemy, int level, float lifeTimeMax, int damage, float range, float scale, float speed);
-
-
+    float cooldownTime { get; set; }
+    float projectsRateMax { get; set; }
+    float lifeTimeMax { get; set; }
+    float speed { get; set; }
 
 
 }
@@ -21,17 +19,49 @@ using static UnityEngine.RuleTile.TilingRuleOutput;
 
 public class FireBallLevelSelector : IWeaponLevelSelector
 {
+    private float _cooldownTime;
+    public float cooldownTime  // read-write instance property
+    {
+        get => _cooldownTime;
+        set => _cooldownTime = value;
+    }
+
+    private float _projectsRateMax;
+    public float projectsRateMax  
+    {
+        get => _projectsRateMax;
+        set => _projectsRateMax = value;
+      
+    }
+
+    private float _lifeTimeMax;
+    public float lifeTimeMax  
+    {
+        get => _lifeTimeMax;
+        set => _lifeTimeMax = value;
+     
+    }
+
+    private float _speed;
+    public float speed  
+    {
+        get => _speed; 
+        set => _speed = value;
+     
+    }
+
     public void Start()
     {
         LevelOne();
     }
 
-    public override void SpawnWeapon(GameObject weaponObject, UnityEngine.Transform weaponManagerTransform, GameObject nearestEnemy,int level, float lifeTimeMax, int damage, float range, float scale, float speed)
+    public void SpawnWeapon(GameObject weaponObject, Transform weaponManagerTransform, GameObject nearestEnemy,int level, float lifeTimeMax, int damage, float range, float scale, float speed)
     {
         SelectLevel(level);
 
-        GameObject projectile = UnityEngine.Transform.Instantiate(weaponObject, weaponManagerTransform.position, Quaternion.identity);
+        GameObject projectile = Transform.Instantiate(weaponObject, weaponManagerTransform.position, Quaternion.identity);
         projectile.GetComponent<Weapon>().Preapare(weaponManagerTransform, nearestEnemy.transform, lifeTimeMax, damage, range, scale, speed);
+
 
     }
 
