@@ -6,7 +6,8 @@ using UnityEngine;
 
  public interface IWeaponLevelSelector
 {
-    void SpawnWeapon(GameObject weaponObject, Transform weaponManagerTransform, GameObject nearestEnemy, int level, float lifeTimeMax, int damage, float range, float scale, float speed);
+    void SpawnWeapon(GameObject weaponObject, Transform weaponManagerTransform, Vector3 nearestEnemy, int level, float lifeTimeMax, int damage, float range, float scale, float speed);
+    void SelectLevel(int level);
 
     float cooldownTime { get; set; }
     float projectsRateMax { get; set; }
@@ -55,12 +56,12 @@ public class FireBallLevelSelector : IWeaponLevelSelector
         LevelOne();
     }
 
-    public void SpawnWeapon(GameObject weaponObject, Transform weaponManagerTransform, GameObject nearestEnemy,int level, float lifeTimeMax, int damage, float range, float scale, float speed)
+    public void SpawnWeapon(GameObject weaponObject, Transform weaponManagerTransform, Vector3 nearestEnemy,int level, float lifeTimeMax, int damage, float range, float scale, float speed)
     {
-        SelectLevel(level);
+        //SelectLevel(level);
 
         GameObject projectile = Transform.Instantiate(weaponObject, weaponManagerTransform.position, Quaternion.identity);
-        projectile.GetComponent<Weapon>().Preapare(weaponManagerTransform, nearestEnemy.transform, lifeTimeMax, damage, range, scale, speed);
+        projectile.GetComponent<Weapon>().Preapare(weaponManagerTransform, nearestEnemy, lifeTimeMax, damage, range, scale, speed);
 
 
     }
@@ -102,24 +103,32 @@ public class FireBallLevelSelector : IWeaponLevelSelector
     {
         cooldownTime = 2;
         projectsRateMax = 0.5f;
+        lifeTimeMax = 5;
+        speed = 10;
     }
 
     private void LevelTree()
     {
         cooldownTime = 1;
         projectsRateMax = 0.25f;
+        lifeTimeMax = 5;
+        speed = 10;
     }
 
     private void LevelFour()
     {
         cooldownTime = 0.5f;
         projectsRateMax = 0.15f;
+        lifeTimeMax = 5;
+        speed = 10;
     }
 
     private void LevelFive()
     {
         cooldownTime = 0.25f;
         projectsRateMax = 0.05f;
+        lifeTimeMax = 5;
+        speed = 10;
     }
 
 }

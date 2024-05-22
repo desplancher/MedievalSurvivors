@@ -45,7 +45,16 @@ public class GameManager : MonoBehaviour
         currentLevel = playerObject.level;
         if (currentLevel != lastLevel ) 
         {
-            //levelUpPanelGroup.OpenPanelNormal();
+            if (currentWeapons < maxWeapons)
+            {
+                levelUpPanelGroup.OpenPanelNormal();
+
+            }
+            else
+            {
+                levelUpPanelGroup.OpenPanelFullWeapons(playerObject.GetComponentsInChildren<WeaponManager>());
+
+            }
 
             lastLevel = currentLevel;
 
@@ -56,6 +65,7 @@ public class GameManager : MonoBehaviour
             if (currentWeapons < maxWeapons)
             {
                 levelUpPanelGroup.OpenPanelNormal();
+
             }
             else
             {

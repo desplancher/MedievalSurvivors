@@ -1,3 +1,8 @@
 22/04 - Inserido e ajustado interface, criado modelo de botao.
 Metas para proximo encontro: Criar e Popular Botoes, pegar referencia do level up, e evoluir a arma.
 
+30/04 - Inserido funcionalidade de criar 4 botões, e populado as informações de nome da arma e imagem da arma.
+Metas para proximo encontro: Pegar dados do level up, e evoluir a arma.
+
+21/05 - Inserido protótipo da arma Laser
+Metas para proximo encontro: Definir todas as armas e interações, para compreender como cada uma irá interagir com o sistema

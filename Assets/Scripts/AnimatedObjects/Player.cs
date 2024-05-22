@@ -125,5 +125,23 @@ public class Player : AnimatedObjects
         }
     }
 
+    public void CreateWeaponManager(string weaponName)
+    {
+        GameObject weaponsManagersGroup = GameObject.Find("WeaponsManagers");
+
+       
+
+        switch (weaponName)
+        {
+            case "FireBall":
+                GameObject fireBall = Resources.Load<GameObject>("Prefabs/WeaponsManagers/" + weaponName + "Manager");
+                Instantiate(fireBall, weaponsManagersGroup.transform);
+                break;
+            case "Shuriken":
+                GameObject shuriken = Resources.Load<GameObject>("Prefabs/WeaponsManagers/" + weaponName + "Manager");
+                Instantiate(shuriken, weaponsManagersGroup.transform);
+                break;
+        }
+    }
 
 }

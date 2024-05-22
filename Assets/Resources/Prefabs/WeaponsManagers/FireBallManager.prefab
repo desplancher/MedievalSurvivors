@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &7767762335666623364
+--- !u!1 &7758732019211529584
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,22 +8,22 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7767762335666623365}
-  - component: {fileID: 7767762335666623362}
+  - component: {fileID: 7758732019211529615}
+  - component: {fileID: 7758732019211529614}
   m_Layer: 0
-  m_Name: ShurikenManager
+  m_Name: FireBallManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &7767762335666623365
+--- !u!4 &7758732019211529615
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7767762335666623364}
+  m_GameObject: {fileID: 7758732019211529584}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 4.1720414, y: 4.1720414, z: 4.1720414}
@@ -32,44 +32,44 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7767762335666623362
+--- !u!114 &7758732019211529614
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7767762335666623364}
+  m_GameObject: {fileID: 7758732019211529584}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5e3548d4061bb80448456aefdc81b0f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectName: Shuriken
+  objectName: FireBall
   additionalHealthRegenration: 0
   additionalHealth: 0
   damage: 100
   defense: 0
-  speed: 5
-  level: 2
+  speed: 10
+  level: 1
+  maxLevel: 5
   currentExperience: 0
   maxExperience: 0
   experienceMultiplier: 0
-  numberProjectsMax: 1
+  numberProjectsMax: 3
   actualProjects: 0
-  sizeProjects: 5
+  sizeProjects: 0
   numberConjurationsMax: 0
   actualConjurations: 0
   areaConjurationsMultiplier: 0
-  rangeConjurations: 1.5
+  rangeConjurations: 0
   isEnemy: 0
-  targetObject: {fileID: 0}
   allEnemyes: []
-  nearestEnemy: {fileID: 0}
+  nearestEnemy: {x: 0, y: 0, z: 0}
   distanteToNearestEnemy: 0
-  cooldownTime: 3
+  cooldownTime: 0
   actualCooldown: 0
-  lifeTimeMax: 1
+  lifeTimeMax: 0
   projectsRateMax: 0
-  actualProjecstRate: 0
-  weaponObject: {fileID: 5715268389979732301, guid: a9fd218fb08afa4419db053f2679a8f7, type: 3}
-  weaponStatus: 3
+  actualProjectsRate: 0
+  weaponObject: {fileID: 5715268389979732301, guid: 3b23e640a6b60d14e86129c0be9b768a, type: 3}
+  weaponStatus: 2

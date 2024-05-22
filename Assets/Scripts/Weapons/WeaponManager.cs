@@ -6,8 +6,8 @@ using UnityEngine;
 public enum AllWeapons
 {
     Shuriken,
-    Fireball,
-    Arma3,
+    FireBall,
+    Laser,
     Arma4,
     Arma5,
     Arma6,
@@ -25,7 +25,7 @@ public enum WeaponStatus
 public class WeaponManager : MasterClass
 {
     public GameObject[] allEnemyes;
-    public GameObject nearestEnemy;
+    public Vector3 nearestEnemy;
     public float distanteToNearestEnemy;
 
     public float cooldownTime;
@@ -41,6 +41,11 @@ public class WeaponManager : MasterClass
     public GameObject weaponObject;
 
     public WeaponStatus weaponStatus = WeaponStatus.Restarting;
+
+    private void Awake()
+    {
+        gameObject.name = objectName + "Manager";
+    }
 
     private void Start()
     {
@@ -67,7 +72,7 @@ public class WeaponManager : MasterClass
 
     void Firing()
     {
-        ChangeLevel(level);
+        //ChangeLevel(level);
         cLevel.SpawnWeapon(weaponObject, gameObject.transform, nearestEnemy, level, lifeTimeMax, damage, rangeConjurations, rangeConjurations, speed);
         
         actualProjects--;
@@ -126,8 +131,8 @@ public class WeaponManager : MasterClass
         allEnemyes = GameObject.FindGameObjectsWithTag("Enemy");
         if (allEnemyes.Length > 0)
         {
-            nearestEnemy = allEnemyes[0];
-            distanteToNearestEnemy = Vector2.Distance(transform.position, nearestEnemy.transform.position);
+            nearestEnemy = allEnemyes[0].transform.position;
+            distanteToNearestEnemy = Vector2.Distance(transform.position, nearestEnemy);
         }
         else
         {
@@ -140,9 +145,13 @@ public class WeaponManager : MasterClass
 
             if (distanceToCurrentEnemy < distanteToNearestEnemy)
             {
-                nearestEnemy = allEnemyes[i];
+                nearestEnemy = allEnemyes[i].transform.position;
                 distanteToNearestEnemy = distanceToCurrentEnemy;
             }
+        }
+        if (nearestEnemy == null)
+        {
+            nearestEnemy = new Vector3(1, 1, 0); //MUDAR PARA ALEATORIO
         }
     }
 
@@ -156,15 +165,31 @@ public class WeaponManager : MasterClass
             case "Shuriken":
                 cLevel = new ShurikenLevelSelector();  
                 break;
+            case "Laser":
+                cLevel = new LaserLevelSelector();
+                break;
             default : break;
         }
     }
 
-    void ChangeLevel(int level)
+    void ChangeLevel(int newLevel)
     {
+        level = newLevel;
+
+        cLevel.SelectLevel(newLevel);
+
+        
         cooldownTime = cLevel.cooldownTime;
         projectsRateMax = cLevel.projectsRateMax;
         lifeTimeMax = cLevel.lifeTimeMax;
         speed = cLevel.speed;
+    }
+
+
+    public void UpgradeWeapon()
+    {
+        level++;
+        ChangeLevel(level);
+        weaponStatus = WeaponStatus.Firing;
     }
 }

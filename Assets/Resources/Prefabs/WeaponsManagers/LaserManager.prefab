@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7758732019211529615}
   - component: {fileID: 7758732019211529614}
   m_Layer: 0
-  m_Name: FireBallManager
+  m_Name: LaserManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44,13 +44,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e3548d4061bb80448456aefdc81b0f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectName: FireBall
+  objectName: Laser
   additionalHealthRegenration: 0
   additionalHealth: 0
   damage: 100
   defense: 0
   speed: 10
-  level: 2
+  level: 1
   maxLevel: 5
   currentExperience: 0
   maxExperience: 0
@@ -63,15 +63,13 @@ MonoBehaviour:
   areaConjurationsMultiplier: 0
   rangeConjurations: 0
   isEnemy: 0
-  nameWeapon: 1
-  targetObject: {fileID: 0}
   allEnemyes: []
-  nearestEnemy: {fileID: 0}
+  nearestEnemy: {x: 0, y: 0, z: 0}
   distanteToNearestEnemy: 0
-  cooldownTime: 3
+  cooldownTime: 0
   actualCooldown: 0
-  lifeTimeMax: 5
-  projectsRateMax: 1
-  actualProjecstRate: 0
-  weaponObject: {fileID: 5715268389979732301, guid: 3b23e640a6b60d14e86129c0be9b768a, type: 3}
-  weaponStatus: 3
+  lifeTimeMax: 0
+  projectsRateMax: 0
+  actualProjectsRate: 0
+  weaponObject: {fileID: 5715268389979732301, guid: 810fe0a0cd90af84ea83fbe8545a7f61, type: 3}
+  weaponStatus: 2

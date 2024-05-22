@@ -8,15 +8,17 @@ public class Weapon : MonoBehaviour
 {
 
     public Transform originRef;
-    public Transform target;
+    public Vector3 target;
     public Vector3 direction;
 
     public int actualDamage;
     public float actualRange;
     public float actualScale;
     public float actualSpeed;
+    public float actualArea;
     private float actualLifeTime;
 
+    public bool canGiveDamage = true;
     public bool isPrepared = false;
 
     // Start is called before the first frame update
@@ -49,7 +51,7 @@ public class Weapon : MonoBehaviour
     /// <param name="range">Distancia do disparo em relação ao Player</param>
     /// <param name="scale">Tamanho do disparo</param>
     /// <param name="speed">Velocidade do disparo</param>
-    public void Preapare(Transform objRef, Transform enemyPos, float lifeTimeMax, int damage, float range, float scale, float speed)
+    public void Preapare(Transform objRef, Vector3 enemyPos, float lifeTimeMax, int damage, float range, float scale, float speed)
     {
         target = enemyPos;
         originRef = objRef;
@@ -65,7 +67,7 @@ public class Weapon : MonoBehaviour
 
     void lookingAt()
     {
-        direction = target.position - originRef.position;
+        direction = target - originRef.position;
         float rotationZ = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0, 0, rotationZ);
     }
@@ -79,7 +81,7 @@ public class Weapon : MonoBehaviour
 
     void GiveDamage(Collider2D enemyCollider)
     {
-        if (enemyCollider.CompareTag("Enemy"))
+        if (enemyCollider.CompareTag("Enemy") && canGiveDamage)
         {
 
             enemyCollider.GetComponent<Enemy>().TakeDamage(actualDamage);
