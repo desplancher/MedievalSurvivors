@@ -25,10 +25,10 @@ public class Enemy : AnimatedObjects
         if (lifeSts == lifeStatus.death)
         {
             DropExperience();
-            lifeSts = lifeStatus.dething;
+            lifeSts = lifeStatus.dying;
 
         }
-        if (lifeSts == lifeStatus.dething)
+        if (lifeSts == lifeStatus.dying)
         {
             Diyng(); 
         }
