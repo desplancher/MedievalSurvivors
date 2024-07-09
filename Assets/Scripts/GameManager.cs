@@ -32,8 +32,8 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         nextSpawnTime = Time.time + spawnInterval;  // Defina o próximo momento de surgimento para o início do jogo
-        currentLevel = playerObject.level;
-        lastLevel = currentLevel;
+        //currentLevel = playerObject.level;
+        //lastLevel = currentLevel;
         currentWeapons = 1;
         
     }
@@ -42,9 +42,13 @@ public class GameManager : MonoBehaviour
     {
         SpawnRandomEnemy();
 
-        currentLevel = playerObject.level;
-        if (currentLevel != lastLevel ) 
+        
+        if (playerObject.experienceStatus == ExpStatus.ChangingLevel) 
         {
+
+            playerObject.excedentExperience = playerObject.currentExperience - playerObject.maxExperience;
+            
+
             if (currentWeapons < maxWeapons)
             {
                 levelUpPanelGroup.OpenPanelNormal();
@@ -56,7 +60,9 @@ public class GameManager : MonoBehaviour
 
             }
 
-            lastLevel = currentLevel;
+            playerObject.experienceStatus = ExpStatus.WaitingSelectionUpgrade;
+
+            //lastLevel = currentLevel;
 
         }
 

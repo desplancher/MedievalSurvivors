@@ -6,3 +6,12 @@ Metas para proximo encontro: Pegar dados do level up, e evoluir a arma.
 
 21/05 - Inserido protótipo da arma Laser
 Metas para proximo encontro: Definir todas as armas e interações, para compreender como cada uma irá interagir com o sistema
+
+03/06 - Atualizado Diagrama de Classes e Iniciado Refatoração dos códigos.
+Proximo: Concluir refatoração do Inimigo e do Player
+
+19/06 - Refatorado funções de morte para os Objetos Animados.
+Proximo: Concluir refatoração do Inimigo e do Player
+
+08/07 - Concluido Refatoração do Inimigo, Player e Animated Objects.
+Proximo: Iniciar Refatoração das Implementações das Armas.

@@ -9,11 +9,11 @@ public class Enemy : AnimatedObjects
     public GameObject experienceObject;
 
     public float experienceValue;
-    public float experienceLifeTime;
-
 
     void Start()
     {
+        lifeSts = lifeStatus.life;
+        alphaValue = 1f;
         currentHealth = maxHealth;                                                  // Inicializa a vida atual com a vida máxima
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;     // Encontre o GameObject do jogador usando a tag "Player"
     }
@@ -21,35 +21,47 @@ public class Enemy : AnimatedObjects
     void Update()
     {
         EnemyMovement();
-        EnemyDie();
+
+        if (lifeSts == lifeStatus.death)
+        {
+            DropExperience();
+            lifeSts = lifeStatus.dething;
+
+        }
+        if (lifeSts == lifeStatus.dething)
+        {
+            Diyng(); 
+        }
     }
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        GiveDamage(other, "Player");
+        if (other.CompareTag("Player"))
+        {
+            other.GetComponent<AnimatedObjects>().TakeDamage(damage);
+
+        }
     }
 
     void EnemyMovement()
     {
-        // Verifica se o jogador foi encontrado
-        if (playerTransform != null)
+        if (lifeSts == lifeStatus.life) 
         {
-            Vector3 direction = playerTransform.position - transform.position;      // Calcula a direção do jogador em relação ao inimigo
-            direction.Normalize();                                                  // Normaliza o vetor para ter comprimento 1
+            // Verifica se o jogador foi encontrado
+            if (playerTransform != null)
+            {
+                Vector3 direction = playerTransform.position - transform.position;      // Calcula a direção do jogador em relação ao inimigo
+                direction.Normalize();                                                  // Normaliza o vetor para ter comprimento 1
 
-            transform.Translate(direction * speed * Time.deltaTime);       // Move o inimigo na direção do jogador
+                transform.Translate(direction * speed * Time.deltaTime);       // Move o inimigo na direção do jogador
+            }
         }
+        
     }
 
-    void EnemyDie()
-    {
-        // Verifica se o inimigo ficou sem vida
-        if (currentHealth <= 0)
-        {
+    void DropExperience()
+    {       
             GameObject ballOfExperience = Instantiate(experienceObject, transform.position, Quaternion.identity);
-            ballOfExperience.GetComponent<ExperienceDropped>().Prepare(experienceValue);
-            AnimatedObjectDie();                                                                  // Chama a função para lidar com a morte do inimigo
-            
-        }
+            ballOfExperience.GetComponent<ExperienceDropped>().Prepare(experienceValue);                                                 
     }
 }

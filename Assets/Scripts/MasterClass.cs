@@ -57,13 +57,6 @@ public class MasterClass : MonoBehaviour
 
     }
 
-    public void GiveDamage(Collider2D takeDamageCollider, string takeDamageTag) // mudar para masterclass
-    {
-        if (takeDamageCollider.CompareTag(takeDamageTag))
-        {
-            takeDamageCollider.GetComponent<AnimatedObjects>().TakeDamage(damage);
-
-        }
-    }
+ 
 
 }

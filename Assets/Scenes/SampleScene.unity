@@ -911,7 +911,7 @@ MonoBehaviour:
   level: 1
   maxLevel: 0
   currentExperience: 0
-  maxExperience: 100
+  maxExperience: 150
   experienceMultiplier: 0
   numberProjectsMax: 0
   actualProjects: 0
@@ -924,8 +924,11 @@ MonoBehaviour:
   maxHealth: 100000
   currentHealth: 0
   healthRegenration: 0.25
-  experienceStatus: 2
   healthBar: {fileID: 1508407874}
+  spriteAnimObject: {fileID: 1063248413}
+  alphaValue: 0
+  lifeSts: 0
+  experienceStatus: 2
   expBar: {fileID: 1258818120}
   excedentExperience: 0
 --- !u!4 &859276402 stripped
@@ -1113,7 +1116,6 @@ GameObject:
   - component: {fileID: 1072036975}
   - component: {fileID: 1072036974}
   - component: {fileID: 1072036973}
-  - component: {fileID: 1072036976}
   - component: {fileID: 1072036977}
   m_Layer: 5
   m_Name: UpgradePanelImage
@@ -1233,18 +1235,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1072036971}
   m_CullTransparentMesh: 1
---- !u!114 &1072036976
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1072036971}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9825a103ae0e3074d8c846c30aafd6b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1072036977
 MonoBehaviour:
   m_ObjectHideFlags: 0

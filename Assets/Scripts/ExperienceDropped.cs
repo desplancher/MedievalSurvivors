@@ -5,44 +5,15 @@ using UnityEngine;
 public class ExperienceDropped : MonoBehaviour
 {
     public float experienceValue;
-    public float lifeTime;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public void Prepare(float expValue)
     {
         experienceValue = expValue;
-        
-        
+        //Mudar a cor do objeto conforme valor da expereiencia
     }
 
     public void Destroy()
     {
         Destroy(gameObject);
     }
-
-    public float GiveExperience()
-    {
-        return experienceValue;
-    }
-  
-    /*public void LifeUpdate()
-    {
-        lifeTime -= Time.deltaTime;
-     
-
-        if (lifeTime <= 0)
-        {
-            Destroy(gameObject);
-        }
-    }*/
 }

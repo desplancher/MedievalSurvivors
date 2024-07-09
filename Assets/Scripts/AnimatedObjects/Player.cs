@@ -6,34 +6,32 @@ using UnityEngine.UI;
 
 public enum ExpStatus
 {
-    LevelUp,
-    InProgress
+    
+    InProgress,
+    ChangingLevel,
+    WaitingSelectionUpgrade,
+    LevelUP
 }
 
 public class Player : AnimatedObjects
 {
     public ExpStatus experienceStatus;
-    
-    public Image healthBar;
     public Image expBar;
-
     public float excedentExperience;
 
     void Start()
     {
         experienceStatus = ExpStatus.InProgress;
         currentHealth = maxHealth;
-        
+        lifeSts = lifeStatus.life;
     }
 
     void Update()
     {
 
         PlayerMovement();  
-        PlayerTakeDamage();
         PlayerHeal();
         PlayerDeath();
-
         ExperienceStatusSelector();
 
 
@@ -41,30 +39,29 @@ public class Player : AnimatedObjects
 
     void PlayerMovement()
     {
-        // Obtém as entradas de movimento horizontal e vertical
-        float horizontalInput = Input.GetAxis("Horizontal");
-        float verticalInput = Input.GetAxis("Vertical");
+        if (lifeSts == lifeStatus.life)
+        {
+            // Obtém as entradas de movimento horizontal e vertical
+            float horizontalInput = Input.GetAxis("Horizontal");
+            float verticalInput = Input.GetAxis("Vertical");
 
-        // Calcula o vetor de movimento
-        Vector3 movement = new Vector3(horizontalInput, verticalInput, 0) * speed * Time.deltaTime;
+            // Calcula o vetor de movimento
+            Vector3 movement = new Vector3(horizontalInput, verticalInput, 0) * speed * Time.deltaTime;
 
-        // Move o jogador
-        transform.Translate(movement);
+            // Move o jogador
+            transform.Translate(movement);
+        }
     }
 
-    public void PlayerTakeDamage()
-    {
-        healthBar.fillAmount = currentHealth / 100f;
-    }
+    
 
     public void PlayerHeal()
     {
         if (currentHealth < maxHealth)
         {
-            currentHealth += healthRegenration * Time.fixedDeltaTime;
-            //currentHealth = Mathf.Clamp(currentHealth, 0, 100);
+            currentHealth += healthRegenration * Time.deltaTime;
 
-            healthBar.fillAmount = currentHealth / 100f;
+            UpdateHealth();
         }
         
     }
@@ -82,28 +79,20 @@ public class Player : AnimatedObjects
 
         if (other.CompareTag("Exp"))
         {
-            addEXP(other.GetComponent<ExperienceDropped>().GiveExperience());
+            addEXP(other.GetComponent<ExperienceDropped>().experienceValue);
             other.GetComponent<ExperienceDropped>().Destroy();
         }
 
     }
 
-    public void PlayerTakeExperience()
-    {
-        expBar.fillAmount = currentExperience / maxExperience;
-        
-        if (currentExperience >= maxExperience)
-        {
-            excedentExperience = currentExperience - maxExperience;
-            experienceStatus = ExpStatus.LevelUp;
-        }
-    }
 
     public void PlayerLevelUp()
     {
         level++;
         maxExperience *= 2;
         currentExperience = excedentExperience;
+        excedentExperience = 0;
+        currentHealth = maxHealth;
         experienceStatus = ExpStatus.InProgress;
         
     }
@@ -112,17 +101,27 @@ public class Player : AnimatedObjects
     {
         switch (experienceStatus)
         {
-            case ExpStatus.LevelUp:
-                PlayerLevelUp();
-                
-                break;
             case ExpStatus.InProgress:
-                
-                PlayerTakeExperience();
+                CheckExp();
                 break;
+
+            case ExpStatus.LevelUP:
+                PlayerLevelUp();
+                break;
+            
             default:
                 break;
         }
+    }
+
+    public void CheckExp()
+    {
+        expBar.fillAmount = currentExperience / maxExperience;
+        if (currentExperience >= maxExperience)
+        {
+            experienceStatus = ExpStatus.ChangingLevel;
+        }
+
     }
 
     public void CreateWeaponManager(string weaponName)

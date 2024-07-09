@@ -154,6 +154,8 @@ public class UpgradeGroup : MonoBehaviour
 
         panelObject.SetActive(false);
         Time.timeScale = 1;
+
+        GameObject.Find("Player").GetComponent<Player>().experienceStatus = ExpStatus.LevelUP;
     }
 
 
