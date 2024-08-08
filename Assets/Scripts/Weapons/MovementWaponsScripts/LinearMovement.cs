@@ -16,7 +16,6 @@ public class LinearMovement : MonoBehaviour
     {
         Vector3 speed = mortalObject.actualSpeed * Vector3.right;
 
-
         transform.Translate(speed * Time.deltaTime, Space.Self);
     }
 

@@ -29,8 +29,11 @@ public class GameManager : MonoBehaviour
     public int maxWeapons;
     public int currentWeapons;
 
+
     void Start()
     {
+        
+        CreateCharacter();
         nextSpawnTime = Time.time + spawnInterval;  // Defina o próximo momento de surgimento para o início do jogo
         //currentLevel = playerObject.level;
         //lastLevel = currentLevel;
@@ -127,5 +130,31 @@ public class GameManager : MonoBehaviour
                 nextSpawnTime = Time.time;
             }
         }  
+    }
+
+    void CreateCharacter()
+    {
+        GameObject character;
+        
+        switch (MessengerClass.CharacterSelected.ToLower())
+        {
+            
+            case "warrior":
+                character = Resources.Load<GameObject>("Prefabs/Characters/Warrior");
+                break;
+            case "mage":
+                character = Resources.Load<GameObject>("Prefabs/Characters/Mage");
+                break;
+            case "orc":
+                character = Resources.Load<GameObject>("Prefabs/Characters/Orc");            
+                break;
+            default:
+                character = Resources.Load<GameObject>("Prefabs/Characters/Warrior");
+                break;
+        }
+        GameObject hero = Instantiate(character);
+        gameCamera = GameObject.Find("Main Camera").GetComponent<Camera>();
+        hero.name = MessengerClass.CharacterSelected;
+        playerObject = hero.GetComponent<Player>();
     }
 }

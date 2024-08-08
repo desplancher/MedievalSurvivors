@@ -48,7 +48,7 @@ public class Player : AnimatedObjects
             // Calcula o vetor de movimento
             Vector3 movement = new Vector3(horizontalInput, verticalInput, 0) * speed * Time.deltaTime;
 
-            // Move o jogador
+            // Move o jogador de acordo com os dados do vetor
             transform.Translate(movement);
         }
     }
@@ -139,6 +139,10 @@ public class Player : AnimatedObjects
             case "Shuriken":
                 GameObject shuriken = Resources.Load<GameObject>("Prefabs/WeaponsManagers/" + weaponName + "Manager");
                 Instantiate(shuriken, weaponsManagersGroup.transform);
+                break;
+            case "Laser":
+                GameObject laser = Resources.Load<GameObject>("Prefabs/WeaponsManagers/" + weaponName + "Manager");
+                Instantiate(laser, weaponsManagersGroup.transform);
                 break;
         }
     }

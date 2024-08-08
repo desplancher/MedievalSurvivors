@@ -13,8 +13,6 @@ using UnityEngine;
     float projectsRateMax { get; set; }
     float lifeTimeMax { get; set; }
     float speed { get; set; }
-
-
 }
 
 

@@ -340,9 +340,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: LaserManager
       objectReference: {fileID: 0}
+    - target: {fileID: 7758732019211529584, guid: 5885f41bae73b1a44bbf8cfb8e21e2a7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7758732019211529615, guid: 5885f41bae73b1a44bbf8cfb8e21e2a7, type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7758732019211529615, guid: 5885f41bae73b1a44bbf8cfb8e21e2a7, type: 3}
       propertyPath: m_LocalScale.x
@@ -398,6 +402,63 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5885f41bae73b1a44bbf8cfb8e21e2a7, type: 3}
+--- !u!1001 &359402651
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1706916006}
+    m_Modifications:
+    - target: {fileID: 7767762335666623364, guid: 4ef174612038caf4baf7f210c88f805f, type: 3}
+      propertyPath: m_Name
+      value: ShurikenManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 7767762335666623365, guid: 4ef174612038caf4baf7f210c88f805f, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7767762335666623365, guid: 4ef174612038caf4baf7f210c88f805f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7767762335666623365, guid: 4ef174612038caf4baf7f210c88f805f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7767762335666623365, guid: 4ef174612038caf4baf7f210c88f805f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7767762335666623365, guid: 4ef174612038caf4baf7f210c88f805f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7767762335666623365, guid: 4ef174612038caf4baf7f210c88f805f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7767762335666623365, guid: 4ef174612038caf4baf7f210c88f805f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7767762335666623365, guid: 4ef174612038caf4baf7f210c88f805f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7767762335666623365, guid: 4ef174612038caf4baf7f210c88f805f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7767762335666623365, guid: 4ef174612038caf4baf7f210c88f805f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7767762335666623365, guid: 4ef174612038caf4baf7f210c88f805f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4ef174612038caf4baf7f210c88f805f, type: 3}
 --- !u!1 &367655876
 GameObject:
   m_ObjectHideFlags: 0
@@ -441,9 +502,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: FireBallManager
       objectReference: {fileID: 0}
+    - target: {fileID: 7758732019211529584, guid: cc4a42500a398574b92e7eef6b1cc83e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7758732019211529615, guid: cc4a42500a398574b92e7eef6b1cc83e, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7758732019211529615, guid: cc4a42500a398574b92e7eef6b1cc83e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1887,7 +1952,7 @@ MonoBehaviour:
   - {fileID: 1145787961474556297, guid: a0b5244744bfccd4d8ccc3a6bcb4115b, type: 3}
   - {fileID: 1145787961474556297, guid: b61f071bd060f9f4597db3f38b458846, type: 3}
   gameCamera: {fileID: 519420031}
-  spawnInterval: 0.5
+  spawnInterval: 1
   distanceSpawn: 4
   playerObject: {fileID: 810957468}
   levelUpPanelGroup: {fileID: 1868415599}
@@ -1923,6 +1988,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1966417343}
   - {fileID: 2145871713}
   - {fileID: 859276402}
   m_Father: {fileID: 810957465}
@@ -2169,6 +2235,11 @@ MonoBehaviour:
   panelObject: {fileID: 1072036971}
   buttonsLayout: {fileID: 599596307}
   buttonBase: {fileID: 3392564796731498547, guid: a0a7076eb960b154fa352f6e97947eb8, type: 3}
+--- !u!4 &1966417343 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7767762335666623365, guid: 4ef174612038caf4baf7f210c88f805f, type: 3}
+  m_PrefabInstance: {fileID: 359402651}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2029201092
 GameObject:
   m_ObjectHideFlags: 0

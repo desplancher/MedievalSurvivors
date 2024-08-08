@@ -131,10 +131,10 @@ public class UpgradeGroup : MonoBehaviour
     void ChoiceUpgrade(string name, bool isNew)
     {
         Debug.Log(name);
-
         if (isNew)
-        {
-            GameObject.Find("Player").GetComponent<Player>().CreateWeaponManager(name);
+        { 
+            GameObject.Find(MessengerClass.CharacterSelected).GetComponent<Player>().CreateWeaponManager(name);
+            
         } else
         {
             GameObject.Find(name + "Manager").GetComponent<WeaponManager>().UpgradeWeapon();
@@ -155,7 +155,7 @@ public class UpgradeGroup : MonoBehaviour
         panelObject.SetActive(false);
         Time.timeScale = 1;
 
-        GameObject.Find("Player").GetComponent<Player>().experienceStatus = ExpStatus.LevelUP;
+        GameObject.Find(MessengerClass.CharacterSelected).GetComponent<Player>().experienceStatus = ExpStatus.LevelUP;
     }
 
 

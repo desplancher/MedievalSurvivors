@@ -129,18 +129,25 @@ public class WeaponManager : MasterClass
     void FindNearestEnemy()
     {
         allEnemyes = GameObject.FindGameObjectsWithTag("Enemy");
-        if (allEnemyes.Length > 0)
+
+
+        if (objectName == "FireBall")
         {
-            nearestEnemy = allEnemyes[0].transform.position;
-            distanteToNearestEnemy = Vector2.Distance(transform.position, nearestEnemy);
+            if (allEnemyes.Length > 0)
+            {
+                nearestEnemy = allEnemyes[0].transform.position;
+                distanteToNearestEnemy = Vector2.Distance(transform.position, nearestEnemy);
+            }
+            else
+            {
+               // weaponStatus = WeaponStatus.Restarting;
+            }
         }
-        else
-        {
-            weaponStatus = WeaponStatus.Restarting;
-        }
+        
 
         for (int i = 1; i < allEnemyes.Length; i++)
         {
+            
             float distanceToCurrentEnemy = Vector2.Distance(transform.position, allEnemyes[i].transform.position);
 
             if (distanceToCurrentEnemy < distanteToNearestEnemy)
@@ -149,9 +156,10 @@ public class WeaponManager : MasterClass
                 distanteToNearestEnemy = distanceToCurrentEnemy;
             }
         }
-        if (nearestEnemy == null)
+
+        if (allEnemyes.Length == 0)
         {
-            nearestEnemy = new Vector3(1, 1, 0); //MUDAR PARA ALEATORIO
+            nearestEnemy = new Vector3(Random.Range(-1,1), Random.Range(-1, 1), 0); //MUDAR PARA ALEATORIO
         }
     }
 
