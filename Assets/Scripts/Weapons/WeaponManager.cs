@@ -7,11 +7,11 @@ public enum AllWeapons
 {
     Shuriken,
     FireBall,
-    Laser,
+    Laser/*,
     Arma4,
     Arma5,
     Arma6,
-    Arma7
+    Arma7*/
 }
 
 public enum WeaponStatus

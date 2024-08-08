@@ -46,7 +46,7 @@ public class UpgradeGroup : MonoBehaviour
             {
                 listNumbers.Add(numbers);
             }
-        } while (listNumbers.Count < 4);
+        } while (listNumbers.Count < 3);
 
         CreateButtons();
     }
