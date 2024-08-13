@@ -47,7 +47,7 @@ MonoBehaviour:
   objectName: Shuriken
   additionalHealthRegenration: 0
   additionalHealth: 0
-  damage: 100
+  damage: 10
   defense: 0
   speed: 5
   level: 1
@@ -64,7 +64,7 @@ MonoBehaviour:
   rangeConjurations: 1.5
   isEnemy: 0
   allEnemyes: []
-  nearestEnemy: {fileID: 0}
+  nearestEnemy: {x: 0, y: 0, z: 0}
   distanteToNearestEnemy: 0
   cooldownTime: 3
   actualCooldown: 0

@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -29,11 +30,23 @@ public class GameManager : MonoBehaviour
     public int maxWeapons;
     public int currentWeapons;
 
+    public float timeGame;
+    public float timeFirstBoss;
+    public bool bossSpawned;
+
+    public GameObject bossPrefab;
+
+    public TMP_Text timeText;
+
+    private void Awake()
+    {
+        CreateCharacter();
+    }
 
     void Start()
     {
         
-        CreateCharacter();
+        
         nextSpawnTime = Time.time + spawnInterval;  // Defina o próximo momento de surgimento para o início do jogo
         //currentLevel = playerObject.level;
         //lastLevel = currentLevel;
@@ -43,9 +56,19 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
+        timeGame += Time.deltaTime;
+        timeText.text = (int)timeGame + "";
+
         SpawnRandomEnemy();
 
-        
+        if (Time.timeSinceLevelLoad >= timeFirstBoss && !bossSpawned)
+        {
+            SpawnBoss();
+            bossSpawned = true; // Garante que o boss só será instanciado uma vez
+        }
+
+
+
         if (playerObject.experienceStatus == ExpStatus.ChangingLevel) 
         {
 
@@ -68,20 +91,22 @@ public class GameManager : MonoBehaviour
             //lastLevel = currentLevel;
 
         }
+    }
 
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            if (currentWeapons < maxWeapons)
-            {
-                levelUpPanelGroup.OpenPanelNormal();
+    Vector3 RandomPosition(Vector3 cameraPosition)
+    {
+        float cameraHeight = 2f * gameCamera.orthographicSize; // Altura da Camera
+        float cameraWidth = cameraHeight * gameCamera.aspect;  // Largura da Camera
 
-            }
-            else
-            {
-                levelUpPanelGroup.OpenPanelFullWeapons(playerObject.GetComponentsInChildren<WeaponManager>());
+        float cameraX = cameraPosition.x;
+        float cameraY = cameraPosition.y;
 
-            }
-        }
+        // Gere posições aleatórias para o surgimento dos inimigos
+
+        float randomX = UnityEngine.Random.Range(cameraX - cameraWidth / 2f, cameraX + cameraWidth / 2f);      // Faixa X do mapa
+        float randomY = UnityEngine.Random.Range(cameraY - cameraHeight / 2f, cameraY + cameraHeight / 2f);    // Faixa Y do mapa
+                                                                                                               // 
+        return new Vector3(randomX, randomY, 0);
     }
 
     void SpawnRandomEnemy()
@@ -94,35 +119,20 @@ public class GameManager : MonoBehaviour
             int randomIndex = UnityEngine.Random.Range(0, enemyPrefabs.Length);
             GameObject randomEnemyPrefab = enemyPrefabs[randomIndex];
 
-            // Obtém a posição atual da câmera
-            Vector3 cameraPosition = gameCamera.transform.position;
-
-            float cameraHeight = 2f * gameCamera.orthographicSize; // Altura da Camera
-            float cameraWidth = cameraHeight * gameCamera.aspect;  // Largura da Camera
-
-            float cameraX = cameraPosition.x;
-            float cameraY = cameraPosition.y;
-
-            // Gere posições aleatórias para o surgimento dos inimigos
-
-            float randomX = UnityEngine.Random.Range(cameraX - cameraWidth / 2f, cameraX + cameraWidth / 2f);      // Faixa X do mapa
-            float randomY = UnityEngine.Random.Range(cameraY - cameraHeight / 2f, cameraY + cameraHeight / 2f);    // Faixa Y do mapa     
+           
+            Vector3 cameraPosition = gameCamera.transform.position; 
+            Vector3 randomVector = RandomPosition(cameraPosition);
 
 
             // Se o valor aleatorio de X e o valor aleatorio de Y estiverem fora do raio da distancia de Spawn, a condicao é satisfeita
-            if (((randomX <= (cameraX - distanceSpawn) || randomX >= (cameraX + distanceSpawn)) && 
-                 (randomY <= (cameraY - distanceSpawn) || randomY >= (cameraY + distanceSpawn))))
+            if (((randomVector.x <= (cameraPosition.x - distanceSpawn) || randomVector.x >= (cameraPosition.x + distanceSpawn)) && 
+                 (randomVector.y <= (cameraPosition.y - distanceSpawn) || randomVector.y >= (cameraPosition.y + distanceSpawn))))
             {
-                //Debug.Log("Camera W: " + cameraWidth / 2f + ", Camera H: " + cameraHeight / 2f);
-                //Debug.Log("Camera X: " + cameraX + ", Camera Y: " + cameraY);
-               // Debug.Log("Random X: " + randomX + ", Random Y: " + randomY);
 
-
-                Vector3 spawnPosition = new Vector3(randomX, randomY, 0);
+                Vector3 spawnPosition = new Vector3(randomVector.x, randomVector.y, 0);
 
                 // Crie um novo inimigo na posição aleatória
                 Instantiate(randomEnemyPrefab, spawnPosition, Quaternion.identity);
-                
                 // Atualize o próximo momento de surgimento
                 nextSpawnTime = Time.time + spawnInterval;
             } else
@@ -154,7 +164,21 @@ public class GameManager : MonoBehaviour
         }
         GameObject hero = Instantiate(character);
         gameCamera = GameObject.Find("Main Camera").GetComponent<Camera>();
+        gameCamera.transform.SetParent(hero.transform);
         hero.name = MessengerClass.CharacterSelected;
         playerObject = hero.GetComponent<Player>();
+    }
+
+    void SpawnBoss()
+    {
+        Vector3 cameraPosition = gameCamera.transform.position;
+        Vector3 randomVector = RandomPosition(cameraPosition);
+
+
+        // Instancia o boss no ponto de spawn especificado
+        Instantiate(bossPrefab, randomVector * 2, Quaternion.identity);
+
+        Debug.Log(Time.timeSinceLevelLoad);
+
     }
 }

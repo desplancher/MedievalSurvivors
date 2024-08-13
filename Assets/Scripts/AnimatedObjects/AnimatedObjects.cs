@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -42,9 +43,10 @@ public class AnimatedObjects : MasterClass
 
     public void UpdateHealth()
     {
+        
         if(healthBar  != null)
         {
-            healthBar.fillAmount = currentHealth / 100f;
+            healthBar.fillAmount = currentHealth / maxHealth;
         }
         if (currentHealth <= 0)
         {

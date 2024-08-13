@@ -42,15 +42,11 @@ public class ShurikenLevelSelector : IWeaponLevelSelector
 
     public void SpawnWeapon(GameObject weaponObject, UnityEngine.Transform weaponManagerTransform, Vector3 nearestEnemy, int level, float lifeTimeMax, int damage, float range, float scale, float speed)
     {
-        SelectLevel(level);
+        //SelectLevel(level);
 
         GameObject projectile = UnityEngine.Transform.Instantiate(weaponObject, weaponManagerTransform.position, Quaternion.identity);
         projectile.GetComponent<Weapon>().Preapare(weaponManagerTransform, nearestEnemy, lifeTimeMax, damage, range, scale, speed);
         
-
-        GameObject projectile1 = UnityEngine.Transform.Instantiate(weaponObject, weaponManagerTransform.position, Quaternion.Euler(0f, 180f, 0f));
-        projectile1.GetComponent<Weapon>().Preapare(weaponManagerTransform, nearestEnemy, lifeTimeMax, damage, range, scale, speed);
-       
     }
 
     public void SelectLevel(int level)

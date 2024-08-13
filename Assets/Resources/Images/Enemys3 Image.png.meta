@@ -33,7 +33,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -42,7 +42,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -103,7 +103,469 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Enemys3 Image_0
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 225
+        width: 66
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da1cde5ad3aed8c468c1cf7ec84ed128
+      internalID: 1701974390
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemys3 Image_1
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 225
+        width: 63
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 895d28fce316b6247aa6f24655a0014a
+      internalID: 57710208
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemys3 Image_2
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 225
+        width: 72
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 35bec9688aa8abb4e9b06c4a175cbcea
+      internalID: 1781082584
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemys3 Image_3
+      rect:
+        serializedVersion: 2
+        x: 227
+        y: 150
+        width: 69
+        height: 146
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41bbe3e7feaf5fd48970c979ee94d19d
+      internalID: 1467028453
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemys3 Image_4
+      rect:
+        serializedVersion: 2
+        x: 307
+        y: 225
+        width: 59
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6101b8624abdbef4d8ff131531a1c1f4
+      internalID: -1809754272
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemys3 Image_5
+      rect:
+        serializedVersion: 2
+        x: 382
+        y: 226
+        width: 61
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea626d07a7a04f146a3faad1ff115317
+      internalID: 2031410605
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemys3 Image_6
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 150
+        width: 34
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63e1744b8ee7540479d882c67a459133
+      internalID: 200881170
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemys3 Image_7
+      rect:
+        serializedVersion: 2
+        x: 87
+        y: 150
+        width: 47
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd177675a8dbd52408b014a2c76d6fef
+      internalID: 1347306017
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemys3 Image_8
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 150
+        width: 49
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0fcd75e646f48124983a6ac446a382a6
+      internalID: 1916744077
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemys3 Image_9
+      rect:
+        serializedVersion: 2
+        x: 306
+        y: 152
+        width: 68
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 00e1a0c73969be54589aa6d5a97c7d37
+      internalID: 109364560
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemys3 Image_10
+      rect:
+        serializedVersion: 2
+        x: 375
+        y: 158
+        width: 75
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c8cce4b7dcab5b46a9ce23da954dbc5
+      internalID: -199504842
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemys3 Image_11
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 75
+        width: 66
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a21c1f2cd337f084486ecf2810788ec2
+      internalID: 2005436970
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemys3 Image_12
+      rect:
+        serializedVersion: 2
+        x: 77
+        y: 80
+        width: 62
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4adce568f390b374eaeafecc51323383
+      internalID: -1948461352
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemys3 Image_13
+      rect:
+        serializedVersion: 2
+        x: 154
+        y: 75
+        width: 68
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8842ad5838393e14bb7e0394acd11f78
+      internalID: 734421646
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemys3 Image_14
+      rect:
+        serializedVersion: 2
+        x: 236
+        y: 75
+        width: 41
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4b08ba7937c23148b08706fec05de51
+      internalID: -1844733803
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemys3 Image_15
+      rect:
+        serializedVersion: 2
+        x: 306
+        y: 75
+        width: 54
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 792bb1f671c290e43b9e0a0581c20ace
+      internalID: -1435396053
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemys3 Image_16
+      rect:
+        serializedVersion: 2
+        x: 375
+        y: 0
+        width: 75
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c51fa1d534fa65a4e9e13a0528020f0a
+      internalID: -1349011941
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemys3 Image_17
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 0
+        width: 64
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 39dd536e176723e43a0b658fb85a0c7b
+      internalID: 877761410
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemys3 Image_18
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 0
+        width: 67
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6121b9af5c6b8a0499c5119b95bdcdec
+      internalID: -92905
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemys3 Image_19
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 0
+        width: 50
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc9831353709e9d4fbb775c3421a59fe
+      internalID: -2017576653
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemys3 Image_20
+      rect:
+        serializedVersion: 2
+        x: 227
+        y: 0
+        width: 66
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b4c293224ee94914d8be282594134c37
+      internalID: -967102861
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemys3 Image_21
+      rect:
+        serializedVersion: 2
+        x: 311
+        y: 0
+        width: 62
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c1b46f3216d4974e8a6837a26059e2d
+      internalID: 1267737880
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -114,7 +576,29 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Enemys3 Image_0: 1701974390
+      Enemys3 Image_1: 57710208
+      Enemys3 Image_10: -199504842
+      Enemys3 Image_11: 2005436970
+      Enemys3 Image_12: -1948461352
+      Enemys3 Image_13: 734421646
+      Enemys3 Image_14: -1844733803
+      Enemys3 Image_15: -1435396053
+      Enemys3 Image_16: -1349011941
+      Enemys3 Image_17: 877761410
+      Enemys3 Image_18: -92905
+      Enemys3 Image_19: -2017576653
+      Enemys3 Image_2: 1781082584
+      Enemys3 Image_20: -967102861
+      Enemys3 Image_21: 1267737880
+      Enemys3 Image_3: 1467028453
+      Enemys3 Image_4: -1809754272
+      Enemys3 Image_5: 2031410605
+      Enemys3 Image_6: 200881170
+      Enemys3 Image_7: 1347306017
+      Enemys3 Image_8: 1916744077
+      Enemys3 Image_9: 109364560
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
