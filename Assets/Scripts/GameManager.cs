@@ -5,6 +5,7 @@ using System.Runtime.CompilerServices;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 
 
@@ -38,6 +39,10 @@ public class GameManager : MonoBehaviour
 
     public TMP_Text timeText;
 
+    public TMP_Text fireBallLevel;
+    public TMP_Text laserLevel;
+    public TMP_Text shurikenLevel;
+
     private void Awake()
     {
         CreateCharacter();
@@ -51,7 +56,7 @@ public class GameManager : MonoBehaviour
         //currentLevel = playerObject.level;
         //lastLevel = currentLevel;
         currentWeapons = 1;
-        
+        UpdateHud();
     }
 
     void Update()
@@ -65,9 +70,13 @@ public class GameManager : MonoBehaviour
         {
             SpawnBoss();
             bossSpawned = true; // Garante que o boss só será instanciado uma vez
+        } else if(Time.timeSinceLevelLoad >= 120f)
+        {
+            MenuScript menuScript = new MenuScript();
+            menuScript.ChangeSceneTo("MainMenu");
         }
 
-
+        
 
         if (playerObject.experienceStatus == ExpStatus.ChangingLevel) 
         {
@@ -181,4 +190,38 @@ public class GameManager : MonoBehaviour
         Debug.Log(Time.timeSinceLevelLoad);
 
     }
+
+    public void UpdateHud()
+    {
+        GameObject fireManager = GameObject.Find("FireBallManager");
+        if (fireManager != null) 
+            {
+            fireBallLevel.text = fireManager.GetComponent<WeaponManager>().level + "";
+        }
+        else
+        {
+            fireBallLevel.text = "0";
+        }
+
+        GameObject shurikenManager = GameObject.Find("ShurikenManager");
+        if (shurikenManager != null)
+        {
+            shurikenLevel.text = shurikenManager.GetComponent<WeaponManager>().level + "";
+        }
+        else
+        {
+            shurikenLevel.text = "0";
+        }
+
+        GameObject laserManager = GameObject.Find("LaserManager");
+        if (laserManager != null)
+        {
+            laserLevel.text = laserManager.GetComponent<WeaponManager>().level + "";
+        }
+        else
+        {
+            laserLevel.text = "0";
+        }
+    }
+
 }

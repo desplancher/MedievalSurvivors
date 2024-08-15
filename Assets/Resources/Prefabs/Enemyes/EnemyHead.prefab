@@ -66,7 +66,7 @@ MonoBehaviour:
   areaConjurationsMultiplier: 0
   rangeConjurations: 0
   isEnemy: 1
-  maxHealth: 50
+  maxHealth: 30
   currentHealth: 0
   healthRegenration: 0
   healthBar: {fileID: 0}
@@ -74,7 +74,7 @@ MonoBehaviour:
   alphaValue: 1
   lifeSts: 0
   experienceObject: {fileID: 1145787961474556297, guid: 232716d35d71528418433286110174a3, type: 3}
-  experienceValue: 50
+  experienceValue: 35
 --- !u!60 &1145787961474556301
 PolygonCollider2D:
   m_ObjectHideFlags: 0

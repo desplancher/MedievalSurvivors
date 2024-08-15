@@ -83,7 +83,7 @@ public class Weapon : MonoBehaviour
     {
         if (enemyCollider.CompareTag("Enemy") && canGiveDamage)
         {
-
+            
             enemyCollider.GetComponent<Enemy>().TakeDamage(actualDamage);
 
         }

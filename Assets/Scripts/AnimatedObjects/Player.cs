@@ -70,7 +70,7 @@ public class Player : AnimatedObjects
     {
         if (currentHealth <= 0)
         {
-            SceneManager.LoadScene("SampleScene"); //recarrega a cena
+            SceneManager.LoadScene("MainMenu"); //recarrega a cena
         }
     }
 
@@ -94,7 +94,9 @@ public class Player : AnimatedObjects
         excedentExperience = 0;
         currentHealth = maxHealth;
         experienceStatus = ExpStatus.InProgress;
-        
+        healthBar.fillAmount = currentHealth / maxHealth;
+
+
     }
 
     void ExperienceStatusSelector()

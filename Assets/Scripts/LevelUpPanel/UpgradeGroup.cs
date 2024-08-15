@@ -130,7 +130,7 @@ public class UpgradeGroup : MonoBehaviour
 
     void ChoiceUpgrade(string name, bool isNew)
     {
-        Debug.Log(name);
+
         if (isNew)
         { 
             GameObject.Find(MessengerClass.CharacterSelected).GetComponent<Player>().CreateWeaponManager(name);
@@ -140,7 +140,7 @@ public class UpgradeGroup : MonoBehaviour
             GameObject.Find(name + "Manager").GetComponent<WeaponManager>().UpgradeWeapon();
         }
 
-
+        GameObject.Find("GameManager").GetComponent<GameManager>().UpdateHud();
         CloseUpgradePannel();
 
     }

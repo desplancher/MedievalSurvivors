@@ -362,7 +362,7 @@ MonoBehaviour:
   areaConjurationsMultiplier: 0
   rangeConjurations: 0
   isEnemy: 0
-  maxHealth: 100000
+  maxHealth: 100
   currentHealth: 0
   healthRegenration: 0.25
   healthBar: {fileID: 4686601081371267744}

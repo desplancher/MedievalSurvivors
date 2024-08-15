@@ -51,9 +51,9 @@ MonoBehaviour:
   objectName: 
   additionalHealthRegenration: 0
   additionalHealth: 0
-  damage: 10
+  damage: 35
   defense: 0
-  speed: 1.5
+  speed: 2
   level: 1
   maxLevel: 0
   currentExperience: 0

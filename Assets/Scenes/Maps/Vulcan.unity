@@ -717,63 +717,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1001 &941869168
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4686601080961159802, guid: ccec9acaa21286c41897a4283fd0f2be, type: 3}
-      propertyPath: m_Name
-      value: Mage
-      objectReference: {fileID: 0}
-    - target: {fileID: 4686601080961159803, guid: ccec9acaa21286c41897a4283fd0f2be, type: 3}
-      propertyPath: m_RootOrder
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4686601080961159803, guid: ccec9acaa21286c41897a4283fd0f2be, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4686601080961159803, guid: ccec9acaa21286c41897a4283fd0f2be, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4686601080961159803, guid: ccec9acaa21286c41897a4283fd0f2be, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4686601080961159803, guid: ccec9acaa21286c41897a4283fd0f2be, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4686601080961159803, guid: ccec9acaa21286c41897a4283fd0f2be, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4686601080961159803, guid: ccec9acaa21286c41897a4283fd0f2be, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4686601080961159803, guid: ccec9acaa21286c41897a4283fd0f2be, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4686601080961159803, guid: ccec9acaa21286c41897a4283fd0f2be, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4686601080961159803, guid: ccec9acaa21286c41897a4283fd0f2be, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4686601080961159803, guid: ccec9acaa21286c41897a4283fd0f2be, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: ccec9acaa21286c41897a4283fd0f2be, type: 3}
 --- !u!1 &1072036971
 GameObject:
   m_ObjectHideFlags: 0
@@ -1479,7 +1422,7 @@ MonoBehaviour:
   maxWeapons: 4
   currentWeapons: 0
   timeGame: 0
-  timeFirstBoss: 10
+  timeFirstBoss: 300
   bossSpawned: 0
   bossPrefab: {fileID: 1145787961474556297, guid: ef8008d99b92ee9499ec34cacd5c61ca, type: 3}
   timeText: {fileID: 891031822}

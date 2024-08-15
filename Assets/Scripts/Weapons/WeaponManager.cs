@@ -131,7 +131,7 @@ public class WeaponManager : MasterClass
         allEnemyes = GameObject.FindGameObjectsWithTag("Enemy");
 
 
-        if (objectName == "FireBall")
+        if (objectName == "FireBall" || objectName == "Laser")
         {
             if (allEnemyes.Length > 0)
             {
@@ -186,7 +186,7 @@ public class WeaponManager : MasterClass
 
         cLevel.SelectLevel(newLevel);
 
-        
+
         cooldownTime = cLevel.cooldownTime;
         projectsRateMax = cLevel.projectsRateMax;
         lifeTimeMax = cLevel.lifeTimeMax;
