@@ -43,6 +43,8 @@ public class GameManager : MonoBehaviour
     public TMP_Text laserLevel;
     public TMP_Text shurikenLevel;
 
+    bool pause;
+
     private void Awake()
     {
         CreateCharacter();
@@ -50,7 +52,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        
+        pause = false;
         
         nextSpawnTime = Time.time + spawnInterval;  // Defina o próximo momento de surgimento para o início do jogo
         //currentLevel = playerObject.level;
@@ -70,13 +72,25 @@ public class GameManager : MonoBehaviour
         {
             SpawnBoss();
             bossSpawned = true; // Garante que o boss só será instanciado uma vez
-        } else if(Time.timeSinceLevelLoad >= 120f)
+        } else if(Time.timeSinceLevelLoad >= 160f)
         {
             MenuScript menuScript = new MenuScript();
             menuScript.ChangeSceneTo("MainMenu");
         }
 
-        
+        if (Input.GetKeyDown(KeyCode.P) && pause == false) 
+        {
+            Time.timeScale = 0;
+            pause = true;
+        } else if (Input.GetKeyDown(KeyCode.P) && pause == true)
+        {
+            Time.timeScale = 1;
+            pause = false;
+        }
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            SceneManager.LoadScene("MainMenu");
+        }
 
         if (playerObject.experienceStatus == ExpStatus.ChangingLevel) 
         {

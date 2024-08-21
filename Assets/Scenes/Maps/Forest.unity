@@ -158,7 +158,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -310, y: 40.2}
+  m_AnchoredPosition: {x: -310, y: 40.199997}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &36493401
@@ -2274,7 +2274,7 @@ MonoBehaviour:
   maxWeapons: 3
   currentWeapons: 0
   timeGame: 0
-  timeFirstBoss: 90
+  timeFirstBoss: 70
   bossSpawned: 0
   bossPrefab: {fileID: 1145787961474556297, guid: ef8008d99b92ee9499ec34cacd5c61ca, type: 3}
   timeText: {fileID: 891031822}

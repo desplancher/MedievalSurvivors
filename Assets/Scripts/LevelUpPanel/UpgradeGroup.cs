@@ -84,20 +84,6 @@ public class UpgradeGroup : MonoBehaviour
 
 
     }
-    public void ButtonClick()
-    {
-        
-    }
-
-    private void DoUpgrade()
-    {
-
-    }
-
-    private void DoCreateWeaponManager()
-    {
-
-    }
 
     private void CreateButton(int idWeapon)
     {
