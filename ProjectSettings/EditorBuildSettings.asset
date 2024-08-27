@@ -15,12 +15,12 @@ EditorBuildSettings:
     path: Assets/Scenes/Menus/SelectMap.unity
     guid: c991263abc16c5d479972d174bdffaaa
   - enabled: 1
-    path: Assets/Scenes/Maps/Vulcan.unity
-    guid: 732c72d56ffedeb4a82842b00db570ae
-  - enabled: 1
     path: Assets/Scenes/Maps/Forest.unity
-    guid: 0a9e2932e4c471440bcb8f8fe9d154b3
+    guid: fdb99e7223f872a4ea17080a78c3a4e4
   - enabled: 1
     path: Assets/Scenes/Maps/Castle.unity
-    guid: e0a9d1ec620ff374089c48f8512f5539
+    guid: 953e5a477806b87489e7a07d90b14af9
+  - enabled: 1
+    path: Assets/Scenes/Maps/Vulcan.unity
+    guid: b067c925618d06346803a4f14a22c22d
   m_configObjects: {}
